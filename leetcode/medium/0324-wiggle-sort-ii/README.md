@@ -42,24 +42,24 @@ Output: [2,3,1,3,1,2]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 21.9 MB (beats 72.01%)  
-**Submitted:** 2026-08-31T14:09:47.612Z  
+**Runtime:** 0 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-08-31T14:10:39.012Z  
 
 ```cpp
 class Solution {
 public:
     void wiggleSort(vector<int>& nums) {
         int n = nums.size();
-        vector<int> temp = nums;
-        sort(temp.begin(), temp.end());
+        // vector<int> temp = nums;
+        sort(nums.begin(), nums.end());
         int mid = (n - 1) / 2;
         int right = n - 1;
         for (int i = 0; i < n; i++) {
             if (i % 2 == 0) {
-                nums[i] = temp[mid--];
+                nums[i] = nums[mid--];
             } else {
-                nums[i] = temp[right--];
+                nums[i] = nums[right--];
             }
         }
     }
