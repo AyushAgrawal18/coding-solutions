@@ -78,27 +78,28 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-01T21:56:44.618Z  
+**Submitted:** 2026-09-01T22:00:06.524Z  
 
 ```c_cpp
 #define ll long long
 long long largestRectangleArea(int n, vector<int>& a) {
     //write your code here
-    ll l=0,r=n-1;
-    ll ans=0;
-    while(l<r){
-        ll height=min(a[l],a[r]);
-        int width = r-l+1;
-        
-        ll area = height*width;
-        ans=max(ans,area);
-        
-        if(a[l]==height){
-            l++;
+    stack<int> st;
+    ll ans = 0;
+
+    for (int i = 0; i <= n; i++) {
+        int curr = (i==n?0:a[i]);
+        while (!st.empty() && a[st.top()] > curr) {
+            int height = a[st.top()];
+            st.pop();
+            int width;
+            if (st.empty())
+                width = i;
+            else
+                width = i-st.top()-1;
+            ans = max(ans, 1LL * height * width);
         }
-        else{
-            r--;
-        }
+        st.push(i);
     }
     return ans;
 }
