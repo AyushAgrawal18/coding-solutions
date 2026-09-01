@@ -71,7 +71,7 @@ Therefore, the glass at position $(1,1)$ receives $0.5$ cup, so its fullness is:
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-01T22:30:22.163Z  
+**Submitted:** 2026-09-01T22:30:03.145Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
