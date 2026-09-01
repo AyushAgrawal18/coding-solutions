@@ -38,9 +38,9 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    int p,r,c;
+    ll p,r,c;
     cin>>p>>r>>c;
-    int need=1;
+    ll need=1;
     // int curr_glass=1;
     double ans;
     
