@@ -1,0 +1,21 @@
+#define ll long long
+long long largestRectangleArea(int n, vector<int>& a) {
+    //write your code here
+    ll l=0,r=n-1;
+    ll ans=0;
+    while(l<r){
+        ll height=min(a[l],a[r]);
+        int width = r-l+1;
+        
+        ll area = height*width;
+        ans=max(ans,area);
+        
+        if(a[l]==height){
+            l++;
+        }
+        else{
+            r--;
+        }
+    }
+    return ans;
+}
