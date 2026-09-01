@@ -51,9 +51,9 @@ Explanation: '?' matches 'c', but the second letter is 'a', which does not matc
 ## Solution
 
 **Language:** C++  
-**Runtime:** 58 ms (beats 41.27%)  
-**Memory:** 15.8 MB (beats 67.19%)  
-**Submitted:** 2026-09-01T20:48:05.721Z  
+**Runtime:** 39 ms (beats 75.78%)  
+**Memory:** 10.4 MB (beats 83.00%)  
+**Submitted:** 2026-09-01T20:56:24.115Z  
 
 ```cpp
 class Solution {
@@ -87,12 +87,15 @@ public:
         int m=p.size();
         // vector<vector<int>> dp(n+1, vector<int>(m+1, -1));
         // return solve(n, m, s, p, dp);
-        vector<vector<bool>> dp(n+1, vector<bool>(m+1, false));
+        // vector<vector<bool>> dp(n+1, vector<bool>(m+1, false));
+        vector<bool> prev(m+1,false);
+        vector<bool> curr(m+1, false);
 
-        dp[0][0]=true;
-        for(int i=1;i<=n;i++){
-            dp[i][0]=false;
-        }
+        // dp[0][0]=true;
+        prev[0]=true;
+        // for(int i=1;i<=n;i++){
+        //     dp[i][0]=false;
+        // }
         for(int j=1;j<=m;j++){
             bool flag=true;
             for(int ii=0;ii<j;ii++){
@@ -101,21 +104,24 @@ public:
                     break;
                 } 
             }
-            dp[0][j] = flag;
+            // dp[0][j] = flag;
+            prev[j] = flag;
         }
 
         for(int i=1;i<=n;i++){
+            curr[0]=false;
             for(int j=1;j<=m;j++){
                 if(s[i-1]==p[j-1] || p[j-1]=='?'){
-                    dp[i][j]=dp[i-1][j-1];
+                    curr[j]=prev[j-1];
                 }
                 else if(p[j-1]=='*'){
-                    dp[i][j]=dp[i-1][j] || dp[i][j-1];
+                    curr[j]=prev[j] || curr[j-1];
                 }
-                else dp[i][j]=false;
+                else curr[j]=false;
             }
+            prev=curr;
         }
-        return dp[n][m];
+        return prev[m];
     }
 };
 ```
