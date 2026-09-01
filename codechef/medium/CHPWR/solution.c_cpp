@@ -1,70 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/* 
-  ****************************************************
-  *                                                  *
-  *             COMPETITIVE PROGRAMMING              *
-  *                                                  *
-  *            Author: Ayush Kumar Agrawal           *
-  *                  Code Smart, Win Big             *
-  *                                                  *
-  ****************************************************
-*/
-
 #define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
-#define ll long long
-#define pb push_back
-#define all(v) (v).begin(), (v).end()
-#define rall(v) (v).rbegin(), (v).rend()
-#define sz(v) ((int)(v).size())
-#define rep(i, a, b) for (int i = a; i < b; ++i)
-#define repr(i, a, b) for (int i = a; i >= b; --i)
-#define loop for(int i = 0; i < n; i++)
-#define rloop for(int i = n-1; i >= 0; i--)
-#define yes() cout << "YES\n"
-#define no() cout << "NO\n"
-
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef pair<int, int> pii;
-typedef vector<pii> vpii;
-
-const ll MOD = 1e9 + 7;
-const ll INF = 1e18;
-const double PI = acos(-1);
-
-
 
 inline void solve() {
-    // Your solution goes here
-    ll p,r,c;
-    cin>>p>>r>>c;
-    ll need=1;
-    // int curr_glass=1;
-    double ans;
-    
-    for(int i=0;i<=r;i++){
-        if(need<=p){
-            ans=1;
-            p-=need;
+    int p, r, c;
+    cin >> p >> r >> c;
+
+    vector<vector<double>> dp(r + 2, vector<double>(r + 2, 0));
+
+    dp[0][0] = p;
+
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j <= i; j++) {
+
+            if (dp[i][j] > 1.0) {
+                double overflow = dp[i][j] - 1.0;
+
+                dp[i][j] = 1.0;
+
+                dp[i + 1][j] += overflow / 2.0;
+                dp[i + 1][j + 1] += overflow / 2.0;
+            }
         }
-        else{
-            ans=(double)p/(double)need;
-            p=0;
-        }
-        // curr_glass*=2;
-        need*=2;
     }
-    cout<<fixed<<setprecision(5)<<ans;
-    
+
+    cout << fixed << setprecision(5) << dp[r][c];
 }
 
 int main() {
     fastio();
-    // int t;
-    // cin >> t;
-    // while (t--) 
-        solve();
+    solve();
     return 0;
 }
