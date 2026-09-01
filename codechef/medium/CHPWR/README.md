@@ -71,7 +71,7 @@ Therefore, the glass at position $(1,1)$ receives $0.5$ cup, so its fullness is:
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-01T22:30:03.145Z  
+**Submitted:** 2026-09-01T22:31:07.261Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -80,32 +80,28 @@ using namespace std;
 #define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 
 inline void solve() {
-    int p, r, c;
-    cin >> p >> r >> c;
+    int P, R, C;
+    cin >> P >> R >> C;
 
-    // Convert 1-indexed to 0-indexed
-    r--;
-    c--;
+    vector<vector<double>> dp(101, vector<double>(101, 0.0));
 
-    vector<vector<double>> dp(r + 2, vector<double>(r + 2, 0));
+    dp[0][0] = P;
 
-    dp[0][0] = p;
-
-    for (int i = 0; i < r; i++) {
+    for (int i = 0; i < R; i++) {
         for (int j = 0; j <= i; j++) {
 
             if (dp[i][j] > 1.0) {
-                double overflow = dp[i][j] - 1.0;
+                double excess = dp[i][j] - 1.0;
 
                 dp[i][j] = 1.0;
 
-                dp[i + 1][j] += overflow / 2.0;
-                dp[i + 1][j + 1] += overflow / 2.0;
+                dp[i + 1][j] += excess / 2.0;
+                dp[i + 1][j + 1] += excess / 2.0;
             }
         }
     }
 
-    cout << fixed << setprecision(5) << dp[r][c] << '\n';
+    cout << fixed << setprecision(5) << min(1.0, dp[R][C]) << '\n';
 }
 
 int main() {
