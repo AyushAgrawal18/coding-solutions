@@ -71,7 +71,7 @@ Therefore, the glass at position $(1,1)$ receives $0.5$ cup, so its fullness is:
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-01T22:24:39.540Z  
+**Submitted:** 2026-09-01T22:25:31.540Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -114,9 +114,9 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    int p,r,c;
+    ll p,r,c;
     cin>>p>>r>>c;
-    int need=1;
+    ll need=1;
     // int curr_glass=1;
     double ans;
     
