@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:00:28.761Z  
+**Submitted:** 2026-09-02T15:00:50.095Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -112,7 +112,7 @@ inline void solve() {
         }
         ans=max(ans,size);
     }
-    cout<<ans<<end;
+    cout<<ans<<endl;
 }
 
 int main() {
