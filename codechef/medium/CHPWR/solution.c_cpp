@@ -7,7 +7,11 @@ inline void solve() {
     int p, r, c;
     cin >> p >> r >> c;
 
-    vector<vector<double>> dp(r + 2, vector<double>(r + 2, 0));
+    // Convert 1-indexed to 0-indexed
+    // r--;
+    // c--;
+
+    vector<vector<double>> dp(101, vector<double>(101, 0.0));
 
     dp[0][0] = p;
 
@@ -25,7 +29,7 @@ inline void solve() {
         }
     }
 
-    cout << fixed << setprecision(5) << dp[r][c];
+    cout << fixed << setprecision(5) << min(1.0,dp[r][c]) << '\n';
 }
 
 int main() {
