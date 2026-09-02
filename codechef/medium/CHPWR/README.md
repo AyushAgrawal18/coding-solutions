@@ -71,7 +71,7 @@ Therefore, the glass at position $(1,1)$ receives $0.5$ cup, so its fullness is:
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-01T22:35:28.854Z  
+**Submitted:** 2026-09-01T22:33:40.894Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -105,7 +105,7 @@ inline void solve() {
         }
     }
 
-    cout << fixed << setprecision(5) << min(1.0,dp[r][c]) << '\n';
+    cout << fixed << setprecision(5) << dp[r][c] << '\n';
 }
 
 int main() {
