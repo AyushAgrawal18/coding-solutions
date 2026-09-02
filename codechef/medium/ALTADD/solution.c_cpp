@@ -53,7 +53,7 @@ inline void solve() {
     for (int i=1;i<n;i++) {
         ans+=abs(a[i]-a[i-1]);
     }
-    ans+=abs(b[n-1]);
+    ans+=abs(a[n-1]);
     cout<<ans/2<<endl;
     
 }
