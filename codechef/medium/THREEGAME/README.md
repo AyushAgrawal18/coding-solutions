@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:28:33.939Z  
+**Submitted:** 2026-09-02T15:24:28.912Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -101,11 +101,12 @@ inline void solve() {
     // Your solution goes here
     int n;
     cin>>n;
+    int divi = n/3;
+    int rem = n%3;
     if(n==1) cout<<1<<endl;
-    else{
-    ll ans=n+(3-(n-1)%3);
-    cout<<ans<<endl;
-    }
+    else if(rem==0) cout<<n+1<<endl;
+    else if(rem==1) cout<<n+3<<endl;
+    if(rem==2) cout<<n+2<<endl;
 }
 
 int main() {
