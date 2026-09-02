@@ -52,9 +52,9 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
 ## Solution
 
 **Language:** C++  
-**Runtime:** 11 ms (beats 30.84%)  
-**Memory:** 27.4 MB (beats 18.30%)  
-**Submitted:** 2026-09-02T14:15:15.931Z  
+**Runtime:** 10 ms (beats 32.64%)  
+**Memory:** 24.9 MB (beats 21.07%)  
+**Submitted:** 2026-09-02T17:37:30.413Z  
 
 ```cpp
 class Solution {
@@ -78,8 +78,23 @@ public:
 
     int maxProfit(vector<int>& prices) {
         int buy = 1;
-        vector<vector<int>> dp(prices.size()+1, vector<int> (2, -1));
-        return solve(1, prices, buy, dp);
+        int n=prices.size();
+        // vector<vector<int>> dp(prices.size()+1, vector<int> (2, -1));
+        // return solve(1, prices, buy, dp);
+        vector<vector<int>> dp(n+2, vector<int>(2,0));
+        for (int i = n; i >= 1; i--) {
+
+            dp[i][1] = max(
+                -prices[i - 1] + dp[i + 1][0],  
+                dp[i + 1][1]                    
+            );
+
+            dp[i][0] = max(
+                prices[i - 1] + dp[i + 1][1],   
+                dp[i + 1][0]                    
+            );
+        }
+        return dp[1][1];
     }
 };
 ```
