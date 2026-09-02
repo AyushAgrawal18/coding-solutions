@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:18:52.362Z  
+**Submitted:** 2026-09-02T15:19:55.965Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -97,7 +97,20 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    int n;
+    cin>>n;
+    vector<int> cnt(31, 0);
+
+    for (int i = 0; i < n; i++) {
+        ll x=i+1;
+        int bit = 63 - __builtin_clzll(x);
+        cnt[bit]++;
+    }
+    int ans = 0;
+    for (int i = 0; i <= 30; i++) {
+        ans = max(ans, cnt[i]);
+    }
+    cout << ans << '\n';
     
 }
 
