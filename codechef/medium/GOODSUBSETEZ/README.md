@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:01:27.984Z  
+**Submitted:** 2026-09-02T15:21:04.485Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -99,20 +99,19 @@ inline void solve() {
     // Your solution goes here
     int n;
     cin>>n;
-    vll a(n);
-    loop cin>>a[i];
-    int ans=0;
-    for(int i=0;i<n;i++){
-        int size =0;
-        for(int j=i;j<n;j++){
-            if(a[j]^a[i]<a[j]&a[i]){
-                size=j-i+1;
-            }
-            else break;
-        }
-        ans=max(ans,size);
+    vector<int> cnt(31, 0);
+
+    for (int i = 0; i < n; i++) {
+        ll x;
+        cin >> x;
+        int bit = 63 - __builtin_clzll(x);
+        cnt[bit]++;
     }
-    cout<<ans<<endl;
+    int ans = 0;
+    for (int i = 0; i <= 30; i++) {
+        ans = max(ans, cnt[i]);
+    }
+    cout << ans << '\n';
 }
 
 int main() {
