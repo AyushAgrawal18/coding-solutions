@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:33:24.476Z  
+**Submitted:** 2026-09-02T15:58:37.589Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -99,13 +99,12 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    ll n;
+    int n;
     cin>>n;
-    // int divi = n/3;
-    ll rem = n%3;
-    if(rem==0) cout<<n+1<<endl;
-    else if(rem==1) cout<<n<<endl;
-    else cout<<n+2<<endl;
+    if(n==1) cout<<1<<endl;
+    else{
+    cout<<n+n/2+(n%2==0)<<endl;
+    }
 }
 
 int main() {
