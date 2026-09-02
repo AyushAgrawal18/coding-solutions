@@ -60,7 +60,7 @@ Thus, the sum is $0 + 0 + 0 + 0 + 5 + 5 = 10$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T16:08:37.955Z  
+**Submitted:** 2026-09-02T16:09:38.952Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
