@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:19:55.965Z  
+**Submitted:** 2026-09-02T15:46:57.958Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -90,8 +90,22 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 const ll MOD = 1e9 + 7;
+const int MAXN = 200000;
 const ll INF = 1e18;
 const double PI = acos(-1);
+
+ll modpow(ll a, ll b) {
+    ll res = 1;
+    while (b) {
+        if (b & 1) res = res * a % MOD;
+        a = a * a % MOD;
+        b >>= 1;
+    }
+    return res;
+}
+
+
+vll inv(MAXN + 1);
 
 
 
@@ -99,16 +113,49 @@ inline void solve() {
     // Your solution goes here
     int n;
     cin>>n;
-    vector<int> cnt(31, 0);
+    
+    vll cnt;
+    
+    for (int i=0;(1<<i)<=n;i++) {
+        int l=1<<i;
+        int r=min(n,(1<<(i+1))-1);
 
-    for (int i = 0; i < n; i++) {
-        ll x=i+1;
-        int bit = 63 - __builtin_clzll(x);
-        cnt[bit]++;
+        if (l<=r)
+            cnt.push_back(r-l+1);
     }
-    int ans = 0;
-    for (int i = 0; i <= 30; i++) {
-        ans = max(ans, cnt[i]);
+    
+    int buckets = cnt.size();
+    int mx = *max_element(cnt.begin(), cnt.end());
+    
+    vll sum(buckets, 1);
+    
+    vector<ll> comb(buckets, 1);
+    
+    ll totalSubsets = modpow(2, n);
+    ll ans = 0;
+
+
+
+     for (int k = 1; k <= mx; k++) {
+
+        ll bad = 1;
+        for (int i = 0; i < buckets; i++) {
+            bad = bad * sum[i] % MOD;
+        }
+        ll good = (totalSubsets - bad + MOD) % MOD;
+
+        ans = (ans + good) % MOD;
+        for (int i = 0; i < buckets; i++) {
+            int c = cnt[i];
+
+            if (k <= c) {
+                comb[i] = comb[i] * (c - k + 1) % MOD;
+                comb[i] = comb[i] * inv[k] % MOD;
+                
+                sum[i] += comb[i];
+                if (sum[i] >= MOD) sum[i] -= MOD;
+            }
+        }
     }
     cout << ans << '\n';
     
