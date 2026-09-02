@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:27:50.677Z  
+**Submitted:** 2026-09-02T15:38:51.389Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -103,8 +103,7 @@ inline void solve() {
     cin>>n;
     if(n==1) cout<<1<<endl;
     else{
-    ll ans=n+(3-(n-1)%3);
-    cout<<ans<<endl;
+    cout<<n+n/2+(n%2==0)<<endl;
     }
 }
 
