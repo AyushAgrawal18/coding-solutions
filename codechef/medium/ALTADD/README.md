@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:30:57.902Z  
+**Submitted:** 2026-09-02T15:31:10.465Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -124,7 +124,7 @@ inline void solve() {
     for (int i=1;i<n;i++) {
         ans+=abs(a[i]-a[i-1]);
     }
-    ans+=abs(b[n-1]);
+    ans+=abs(a[n-1]);
     cout<<ans/2<<endl;
     
 }
