@@ -52,29 +52,29 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
 ## Solution
 
 **Language:** C++  
-**Runtime:** 10 ms (beats 32.64%)  
-**Memory:** 24.9 MB (beats 21.07%)  
-**Submitted:** 2026-09-02T17:37:30.413Z  
+**Runtime:** 13 ms (beats 19.43%)  
+**Memory:** 24.6 MB (beats 33.46%)  
+**Submitted:** 2026-09-02T17:37:50.898Z  
 
 ```cpp
 class Solution {
 public:
 
-    int solve(int i, vector<int> &a, int buy, vector<vector<int>> &dp){
-        int n=a.size();
+    // int solve(int i, vector<int> &a, int buy, vector<vector<int>> &dp){
+    //     int n=a.size();
 
-        if(i==n+1) return 0;
-        if(dp[i][buy]!=-1) return dp[i][buy];
+    //     if(i==n+1) return 0;
+    //     if(dp[i][buy]!=-1) return dp[i][buy];
 
-        int profit;
-        if(buy){
-            profit=max(-a[i-1]+solve(i+1, a, 0, dp), solve(i+1, a, 1, dp));
-        }
-        else{
-            profit=max(a[i-1]+solve(i+1, a, 1, dp), solve(i+1, a, 0, dp));
-        }
-        return dp[i][buy] = profit;
-    }
+    //     int profit;
+    //     if(buy){
+    //         profit=max(-a[i-1]+solve(i+1, a, 0, dp), solve(i+1, a, 1, dp));
+    //     }
+    //     else{
+    //         profit=max(a[i-1]+solve(i+1, a, 1, dp), solve(i+1, a, 0, dp));
+    //     }
+    //     return dp[i][buy] = profit;
+    // }
 
     int maxProfit(vector<int>& prices) {
         int buy = 1;
