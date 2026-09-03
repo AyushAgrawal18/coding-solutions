@@ -62,7 +62,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-03T19:38:10.594Z  
+**Submitted:** 2026-09-03T19:39:04.398Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,14 +109,15 @@ inline void solve() {
     cin>>n;
     string s;
     cin>>s;
-    int count=0,one=0,zero=0;
+    ll count=0,one=0,zero=0;
     for(int i=0;i<n;i++){
         if(s[i]=='1') one++;
         else zero++;
         
         if(one==zero) count++;
     }
-    cout<<pow(2,count)<<endl;
+    ll ans = pow(2,count);
+    cout<<ans<<endl;
 }
 
 int main() {
