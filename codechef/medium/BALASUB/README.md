@@ -75,7 +75,7 @@ So, we output $-1$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T14:58:52.180Z  
+**Submitted:** 2026-09-09T15:15:48.228Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -122,11 +122,30 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    vll pref(n);
-    pref[0]=a[0];
-    for(int i=1;i<n;i++){
-        pref[i]=pref[i-1]+a[i];
+    vll last(n + 1, -1);
+    stack<int> st;
+
+    loop {
+        int x = a[i];
+        while (!st.empty()&&a[st.top()]<=x) {
+            st.pop();
+        }
+        int pg=st.empty()?-1:st.top();
+        if(last[x]!=-1&&last[x]>pg){
+            cout<<last[x]+1<<" "<<i+1<<endl;
+            return;
+        }
+        last[x]=i;
+        st.push(i);
     }
+    for(int i=1;i<n-1;i++) {
+        if (a[i]>a[i-1]&&a[i]>a[i + 1]){
+            cout<<i<<" "<<i+2<<'\n';
+            return;
+        }
+    }
+
+    cout<<-1<<'\n';
     
 }
 
