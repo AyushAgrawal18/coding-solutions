@@ -76,7 +76,7 @@ It can be verified that there's no way to use the launcher more than $3$ times b
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T15:25:30.639Z  
+**Submitted:** 2026-09-09T15:25:38.961Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -118,7 +118,6 @@ const int NEG = -1e9;
 
 
 int solve(vll &a) {
-
     int dp[2]={0,NEG};
     for (ll x:a){
         int ndp[2]={NEG,NEG};
@@ -138,7 +137,7 @@ int solve(vll &a) {
         dp[0]=ndp[0];
         dp[1]=ndp[1];
     }
-    return max(dp[0], dp[1]);
+    return max(dp[0],dp[1]);
 }
 
 
