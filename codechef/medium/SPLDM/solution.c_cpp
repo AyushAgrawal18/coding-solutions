@@ -37,7 +37,6 @@ const int NEG = -1e9;
 
 
 int solve(vll &a) {
-
     int dp[2]={0,NEG};
     for (ll x:a){
         int ndp[2]={NEG,NEG};
@@ -57,7 +56,7 @@ int solve(vll &a) {
         dp[0]=ndp[0];
         dp[1]=ndp[1];
     }
-    return max(dp[0], dp[1]);
+    return max(dp[0],dp[1]);
 }
 
 
