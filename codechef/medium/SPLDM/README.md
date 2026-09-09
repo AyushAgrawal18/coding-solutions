@@ -76,7 +76,7 @@ It can be verified that there's no way to use the launcher more than $3$ times b
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T15:11:46.112Z  
+**Submitted:** 2026-09-09T15:25:30.639Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -114,16 +114,31 @@ typedef vector<pii> vpii;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
 const double PI = acos(-1);
+const int NEG = -1e9;
 
 
-int solve(int i, vll &a){
-    if(i==0){
-        if(a[i]!=0) return 1;
-        return 0;
+int solve(vll &a) {
+
+    int dp[2]={0,NEG};
+    for (ll x:a){
+        int ndp[2]={NEG,NEG};
+        ndp[0]=max(dp[0],dp[1]);
+        if(x==3){
+            // ndp[0]=max(ndp[0],dp[0]+1);
+            // ndp[0]=max(ndp[0],dp[1]+1);
+            ndp[0]=max(ndp[0],max(dp[0],dp[1])+1);
+        }
+        else if(x==2){
+            ndp[0]=max(ndp[0],dp[0]+1);
+            ndp[1]=max(ndp[1],dp[1]+1);
+        }
+        else {
+            ndp[1]=max(ndp[1],dp[0]+1);
+        }
+        dp[0]=ndp[0];
+        dp[1]=ndp[1];
     }
-    int take=1+solve(i-1,a);
-    
-    
+    return max(dp[0], dp[1]);
 }
 
 
@@ -134,7 +149,8 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    int ans = solve(n-1, a);
+    int ans = solve(a);
+    cout<<ans<<endl;
 }
 
 int main() {
