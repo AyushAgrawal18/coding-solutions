@@ -68,7 +68,7 @@ The target person finally completes their service at time  **9**.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T14:02:41.388Z  
+**Submitted:** 2026-09-14T14:06:03.467Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -111,15 +111,28 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n,t;
+    cin>>n>>t;
+    vll a(n);
+    loop cin>>a[i];
+    ll ans=0;
+    loop{
+        if(i<=t){
+            ans+=min(a[t],a[i]);
+        }
+        else{
+            ans+=min(a[t]-1,a[i]);
+        }
+    }
+    cout<<ans;
     
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
