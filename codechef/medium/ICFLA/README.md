@@ -47,7 +47,7 @@ Therefore, the minimum number of balls required is  **4**.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T14:20:34.932Z  
+**Submitted:** 2026-09-14T14:21:32.877Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -101,14 +101,7 @@ inline void solve() {
         else
             lo=mid+1;
     }
-    ll k=lo;
-    ll pairs=(ll)((__int128)k*(k-1)/2);
-    if (pairs>=n){
-        cout << k;
-    } 
-    else {
-        cout << k+(n-pairs);
-    }
+    cout<<lo;
 }
 
 int main() {
