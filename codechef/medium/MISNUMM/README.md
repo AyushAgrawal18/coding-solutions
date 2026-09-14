@@ -69,7 +69,7 @@ Each of $204$, $205$, and $206$ occurs three times in $B$ but only twice in $A$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T14:00:10.151Z  
+**Submitted:** 2026-09-14T13:57:58.148Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -114,30 +114,31 @@ inline void solve() {
     // Your solution goes here
     ll n;
     cin>>n;
-    map<int, int> freqA, freqB;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        freqA[x]++;
-    }
+    vll a(n);
+    loop cin>>a[i];
     ll m;
     cin>>m;
-    for (int i = 0; i < m; i++) {
-        int x;
-        cin >> x;
-        freqB[x]++;
+    vll b(m);
+    for(int i=0;i<m;i++) cin>>b[i];
+    if(n==m){
+        cout<<-1;
+        return;
     }
-    bool found = false;
-    for (auto &[x, freq] : freqB) {
-        if (freqA[x] < freq) {
-            cout << x << " ";
-            found = true;
+    sort(all(a));
+    sort(all(b));
+    vll ans;
+    int x=0;
+    for(int i=0;i<m;i++){
+        if(a[x]==b[i]){
+            x++;
+        }
+        else{
+            ans.push_back(b[i]);
         }
     }
-    if (!found) {
-        cout << -1;
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
     }
-    cout << '\n';
 }
 
 int main() {
