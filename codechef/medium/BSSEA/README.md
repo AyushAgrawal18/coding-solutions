@@ -66,7 +66,7 @@ Seats $3$ and $7$ are both $2$ units away from the center. Choose seat $3$ becau
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T13:39:22.518Z  
+**Submitted:** 2026-09-14T13:40:11.513Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,7 +109,12 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
+    sor(all(a));
+    int x=
     
 }
 
