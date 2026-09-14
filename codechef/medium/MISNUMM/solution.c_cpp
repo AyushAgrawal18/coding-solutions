@@ -46,6 +46,10 @@ inline void solve() {
     cin>>m;
     vll b(m);
     for(int i=0;i<m;i++) cin>>b[i];
+    if(n==m){
+        cout<<-1;
+        return;
+    }
     sort(all(a));
     sort(all(b));
     vll ans;
