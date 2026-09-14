@@ -44,7 +44,7 @@ inline void solve() {
     loop cin>>a[i];
     sort(all(a));
     ll x=a[0]+(a[n-1]-a[0])/2;
-    ll ans=lower_bound(a.begin(), a.end(), x)-a.begin();
+    ll ans=upper_bound(all(a),x)-a.begin()-1;
     cout<<a[ans];
 }
 
