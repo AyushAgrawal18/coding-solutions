@@ -47,7 +47,7 @@ Therefore, the minimum number of balls required is  **4**.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T14:26:48.970Z  
+**Submitted:** 2026-09-14T14:22:04.922Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -101,11 +101,7 @@ inline void solve() {
         else
             lo=mid+1;
     }
-    ll d = lo;
-    ll diff=(ll)((__int128)d*(d-1)/2);
-    ll same=n-diff;
-
-    cout<<d+same;
+    cout<<lo;
 }
 
 int main() {
