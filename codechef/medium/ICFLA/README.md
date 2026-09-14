@@ -47,7 +47,7 @@ Therefore, the minimum number of balls required is  **4**.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T14:21:32.877Z  
+**Submitted:** 2026-09-14T14:24:36.391Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -92,16 +92,19 @@ inline void solve() {
     // Your solution goes here
     ll n;
     cin>>n;
-    ll lo=1, hi= 2000000000LL;
-    while (lo<hi){
-        ll mid=lo+(hi-lo)/2;
-        __int128 pairs=(__int128)mid*(mid-1)/2;
-        if (pairs>=n)
-            hi=mid;
-        else
-            lo=mid+1;
+    ll ans=INF;
+    ll limit=sqrtl(2.0L*n)+5;
+    for (ll d=1;d<=limit;d++) {
+        __int128 diff=(__int128)d*(d-1)/2;
+
+        if (diff>n)
+            continue;
+        ll s=n-(ll)diff;
+        if (s<=d){
+            ans=min(ans,d+s);
+        }
     }
-    cout<<lo;
+    cout<<ans;
 }
 
 int main() {
