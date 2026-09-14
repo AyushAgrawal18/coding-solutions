@@ -66,7 +66,7 @@ Seats $3$ and $7$ are both $2$ units away from the center. Choose seat $3$ becau
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T13:49:02.398Z  
+**Submitted:** 2026-09-14T13:47:26.142Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -115,14 +115,8 @@ inline void solve() {
     loop cin>>a[i];
     sort(all(a));
     ll x=a[0]+(a[n-1]-a[0])/2;
-    auto it = upper_bound(all(a), x);
-    if (it==a.begin()) {
-        cout<<-1;
-    } 
-    else {
-        --it;
-        cout<<*it;
-    }
+    ll ans = upper_bound(all(a), x) - a.begin()-1;
+    cout<<a[ans];
 }
 
 int main() {
