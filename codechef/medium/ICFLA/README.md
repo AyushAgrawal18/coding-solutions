@@ -47,7 +47,7 @@ Therefore, the minimum number of balls required is  **4**.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T14:10:07.925Z  
+**Submitted:** 2026-09-14T14:11:52.918Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
