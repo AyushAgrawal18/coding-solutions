@@ -49,14 +49,11 @@ inline void solve() {
         else
             lo=mid+1;
     }
-    ll k=lo;
-    ll pairs=(ll)((__int128)k*(k-1)/2);
-    if (pairs>=n){
-        cout << k;
-    } 
-    else {
-        cout << k+(n-pairs);
-    }
+    ll d = lo;
+    ll diff=(ll)((__int128)d*(d-1)/2);
+    ll same=n-diff;
+
+    cout<<d+same;
 }
 
 int main() {
