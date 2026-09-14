@@ -42,16 +42,17 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    sor(all(a));
-    int x=
-    
+    sort(all(a));
+    ll x=a[0]+(a[n-1]-a[0])/2;
+    ll ans=lower_bound(a.begin(), a.end(), x)-a.begin();
+    cout<<a[ans];
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
