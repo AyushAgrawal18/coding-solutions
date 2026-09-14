@@ -69,7 +69,7 @@ Each of $204$, $205$, and $206$ occurs three times in $B$ but only twice in $A$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T13:53:49.198Z  
+**Submitted:** 2026-09-14T13:56:48.011Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -112,15 +112,36 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
+    ll m;
+    cin>>m;
+    vll b(m);
+    for(int i=0;i<m;i++) cin>>b[i];
+    sort(all(a));
+    sort(all(b));
+    vll ans;
+    int x=0;
+    for(int i=0;i<m;i++){
+        if(a[x]==b[i]){
+            x++;
+        }
+        else{
+            ans.push_back(b[i]);
+        }
+    }
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
