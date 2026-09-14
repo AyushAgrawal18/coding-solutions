@@ -69,7 +69,7 @@ Each of $204$, $205$, and $206$ occurs three times in $B$ but only twice in $A$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T13:56:48.011Z  
+**Submitted:** 2026-09-14T13:57:49.187Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -120,6 +120,10 @@ inline void solve() {
     cin>>m;
     vll b(m);
     for(int i=0;i<m;i++) cin>>b[i];
+    if(n==m){
+        cout<<-1;
+        return;
+    }
     sort(all(a));
     sort(all(b));
     vll ans;
