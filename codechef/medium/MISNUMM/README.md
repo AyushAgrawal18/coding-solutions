@@ -69,7 +69,7 @@ Each of $204$, $205$, and $206$ occurs three times in $B$ but only twice in $A$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-14T13:57:49.187Z  
+**Submitted:** 2026-09-14T13:57:45.188Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
