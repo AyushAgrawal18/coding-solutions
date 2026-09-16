@@ -60,7 +60,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:54:35.982Z  
+**Submitted:** 2026-09-16T15:55:14.969Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -107,49 +107,39 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    #include <bits/stdc++.h>
-using namespace std;
+    set<int> s;
 
-/* 
-  ****************************************************
-  *                                                  *
-  *             COMPETITIVE PROGRAMMING              *
-  *                                                  *
-  *            Author: Ayush Kumar Agrawal           *
-  *                  Code Smart, Win Big             *
-  *                                                  *
-  ****************************************************
-*/
+    for (int i=0;i<n-1;i++) {
+        if (a[i]>a[i+1])
+            s.insert(i);
+    }
+    ll ans = 0;
+    while (!s.empty()) {
+        int i=*s.rbegin();
+        s.erase(i);
+        ll diff=a[i]-a[i+1];
+        ll k=(diff+1)/2;
+        if (i+2<n) {
+            ll need=a[i+2]-a[i+1]+1;
+            if (need<k)
+                k=need;
+        }
+        a[i]-=k;
+        a[i+1]+=k;
+        ans+=k;
+        for (int j:{i-1,i,i+1}) {
+            if (j<0||j+1>=n)
+                continue;
 
-#define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
-#define ll long long
-#define pb push_back
-#define all(v) (v).begin(), (v).end()
-#define rall(v) (v).rbegin(), (v).rend()
-#define sz(v) ((int)(v).size())
-#define rep(i, a, b) for (int i = a; i < b; ++i)
-#define repr(i, a, b) for (int i = a; i >= b; --i)
-#define loop for(int i = 0; i < n; i++)
-#define rloop for(int i = n-1; i >= 0; i--)
-#define yes() cout << "YES\n"
-#define no() cout << "NO\n"
-
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef pair<int, int> pii;
-typedef vector<pii> vpii;
-
-const ll MOD = 1e9 + 7;
-const ll INF = 1e18;
-const double PI = acos(-1);
-
-
-
-inline void solve() {
-    // Your solution goes here
+            if (a[j]>a[j+1])
+                s.insert(j);
+            else
+                s.erase(j);
+        }
+    }
+    cout<<ans<<endl;
     
 }
-
 
 int main() {
     fastio();
