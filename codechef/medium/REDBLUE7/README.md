@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T14:52:38.993Z  
+**Submitted:** 2026-09-16T14:54:35.655Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -108,10 +108,12 @@ inline void solve() {
         sum+=a[i];
     }
     sort(all(a));
+    ll suff=0;
     ll ans=0;
-    for(int i=1;i<n;i++){
-        sum-=a[i-1];
-        ans=max(ans,sum*i);
+    for (ll i=1;i<n;i++) {
+        suff+=a[n-i];
+        ll cur = i*sum+(n-2*i)*suff;
+        ans = max(ans,cur);
     }
     cout<<ans<<endl;
 }
