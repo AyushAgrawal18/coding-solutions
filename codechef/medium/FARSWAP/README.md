@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:21:06.653Z  
+**Submitted:** 2026-09-16T15:24:52.591Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -113,19 +113,19 @@ inline void solve() {
         if (pos[x]<pos[x+1]){
             ll sum = 0;
             for (int j=0;j<=x;j++) {
-                ndp[j]=sum;
-                if (j<(int)dp.size()){
-                    sum=(sum+dp[j])%MOD;
+                if (j>0){
+                    sum=(sum+dp[j-1])%MOD;
                 }
+                ndp[j]=sum;
             }
         } 
         else {
             ll sum=0;
             for (int j=x;j>=0;j--) {
-                ndp[j]=sum;
-                if (j-1>=0&&j-1<(int)dp.size()){
-                    sum=(sum+dp[j-1])%MOD;
+                if (j<(int)dp.size()){
+                    sum=(sum+dp[j])%MOD;
                 }
+                ndp[j]=sum;
             }
         }
         dp=ndp;
