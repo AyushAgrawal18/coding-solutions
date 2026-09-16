@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T14:48:42.382Z  
+**Submitted:** 2026-09-16T14:52:38.993Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -102,18 +102,16 @@ inline void solve() {
     ll n;
     cin>>n;
     vll a(n);
-    loop cin>>a[i];
-    sort(all(a));
-    vll pref(n+1,0);
     ll sum=0;
-    for(int i=n-1;i>=0;i--){
-        pref[i]=pref[i-1]+a[i-1];
-        sum+=a[i-1];
+    loop{ 
+        cin>>a[i];
+        sum+=a[i];
     }
+    sort(all(a));
     ll ans=0;
-    for(int i=1;i<n+1;i++){
-        ll temp=(sum-pref[i])*i;
-        ans=max(ans,temp);
+    for(int i=1;i<n;i++){
+        sum-=a[i-1];
+        ans=max(ans,sum*i);
     }
     cout<<ans<<endl;
 }
