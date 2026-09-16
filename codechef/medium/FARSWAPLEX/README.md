@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T14:56:17.159Z  
+**Submitted:** 2026-09-16T15:01:54.159Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -99,7 +99,21 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
     
+    for(int i=0;i<n-1;i++){
+        if(abs(a[i]-a[i+1])>1){
+            if(a[i]>a[i+1]){
+                swap(a[i],a[i+1]);
+            }
+        }
+        cout<<a[i]<<" ";
+    }
+    cout<<a[n-1];
+    cout<<endl;
     
 }
 
