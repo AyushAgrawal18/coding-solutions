@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:05:15.589Z  
+**Submitted:** 2026-09-16T15:09:21.007Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -91,7 +91,7 @@ typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll MOD = 1e9 + 7;
+const ll MOD = 998244353;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
@@ -106,17 +106,14 @@ inline void solve() {
     ll ans=1;
     
     for(int i=0;i<n;i++){
-        for(int i=0;i<n-1;i++){
+        for(int j=i;j<n-1;j++){
             if(abs(a[i]-a[i+1])>1){
-                if(a[i]>a[i+1]){
                     swap(a[i],a[i+1]);
-                    ans= (ans+1+MOD)%MOD;
-                }
+                    ans = (ans*2)%MOD;
             }
         }
     }
-    }
-    cout<<endl;
+    cout<<ans<<endl;
     
 }
 
