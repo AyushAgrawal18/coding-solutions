@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:16:26.938Z  
+**Submitted:** 2026-09-16T15:21:06.653Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -91,7 +91,7 @@ typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll MOD = 998244353;
+const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
@@ -99,42 +99,42 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    ll n;
+    int n;
     cin>>n;
-    vll a(n);
+    vll p(n);
     vll pos(n+1);
     loop{
-        cin>>a[i];
-        pos[a[i]]=i;
+        cin>>p[i];
+        pos[p[i]]=i;
     }
-    vll ans(1,1);
-    for (int x = 1; x < n; x++) {
-        vector<ll> dp(x + 1, 0);
-
-        if (pos[x] < pos[x + 1]) {
+    vll dp(1, 1);
+    for (int x=1;x<n;x++) {
+        vll ndp(x+1,0);
+        if (pos[x]<pos[x+1]){
             ll sum = 0;
-
-            for (int j = 0; j <= x; j++) {
-                dp[j] = sum;
-                if (j < 1) {
-                    sum = (sum + ans) % MOD;
+            for (int j=0;j<=x;j++) {
+                ndp[j]=sum;
+                if (j<(int)dp.size()){
+                    sum=(sum+dp[j])%MOD;
                 }
             }
         } 
         else {
-            ll sum = 0;
-            for (int j = x; j >= 0; j--) {
-                dp[j] = sum;
-                if (j - 1 >= 0 && j - 1 < 1) {
-                    sum = (sum + ans) % MOD;
+            ll sum=0;
+            for (int j=x;j>=0;j--) {
+                ndp[j]=sum;
+                if (j-1>=0&&j-1<(int)dp.size()){
+                    sum=(sum+dp[j-1])%MOD;
                 }
             }
         }
-        ans = dp;
+        dp=ndp;
     }
-    ans = ans%MOD;
+    ll ans=0;
+    for(ll x:dp){
+        ans=(ans+x)%MOD;
+    }
     cout<<ans<<endl;
-    
 }
 
 int main() {
