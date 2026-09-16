@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:09:21.007Z  
+**Submitted:** 2026-09-16T15:16:26.938Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -102,17 +102,37 @@ inline void solve() {
     ll n;
     cin>>n;
     vll a(n);
-    loop cin>>a[i];
-    ll ans=1;
-    
-    for(int i=0;i<n;i++){
-        for(int j=i;j<n-1;j++){
-            if(abs(a[i]-a[i+1])>1){
-                    swap(a[i],a[i+1]);
-                    ans = (ans*2)%MOD;
+    vll pos(n+1);
+    loop{
+        cin>>a[i];
+        pos[a[i]]=i;
+    }
+    vll ans(1,1);
+    for (int x = 1; x < n; x++) {
+        vector<ll> dp(x + 1, 0);
+
+        if (pos[x] < pos[x + 1]) {
+            ll sum = 0;
+
+            for (int j = 0; j <= x; j++) {
+                dp[j] = sum;
+                if (j < 1) {
+                    sum = (sum + ans) % MOD;
+                }
+            }
+        } 
+        else {
+            ll sum = 0;
+            for (int j = x; j >= 0; j--) {
+                dp[j] = sum;
+                if (j - 1 >= 0 && j - 1 < 1) {
+                    sum = (sum + ans) % MOD;
+                }
             }
         }
+        ans = dp;
     }
+    ans = ans%MOD;
     cout<<ans<<endl;
     
 }
