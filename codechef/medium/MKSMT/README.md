@@ -82,7 +82,7 @@ It can be verified that for any $X \gt 4$, no choice of subarray can make the ar
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:54:24.330Z  
+**Submitted:** 2026-09-23T15:49:40.058Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -127,8 +127,8 @@ bool check(ll x, vll a){
     ll sum=0;
     loop {
         if(a[i]>=x){
-            sum+=(a[i]-x);
             a[i]=x;
+            sum+=(a[i]-x);
         }
         else{
             int temp=min(sum,x-a[i]);
@@ -148,23 +148,40 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    if(is_sorted(all(a))){
-        cout<<-1<<endl;
-        return;
-    }
-    ll l=1, r=1e9;
-    ll ans=0;
-    while(l<=r){
-        ll mid= l+(r-l)/2;
-        if(check(mid, a)){
-            ans=mid;
-            l=mid+1;
+    // if(is_sorted(all(a))){
+    //     cout<<-1<<endl;
+    //     return;
+    // }
+    // ll l=1, r=1e9;
+    // ll ans=0;
+    // while(l<=r){
+    //     ll mid= l+(r-l)/2;
+    //     if(check(mid, a)){
+    //         ans=mid;
+    //         l=mid+1;
+    //     }
+    //     else{
+    //         r=mid-1;
+    //     }
+    // }
+    // cout<<ans<<endl;
+    ll x=4;
+    ll sum=0;
+    loop {
+        if(a[i]>=x){
+            a[i]=x;
+            sum+=(a[i]-x);
         }
         else{
-            r=mid-1;
+            int temp=min(sum,x-a[i]);
+            a[i]+=temp;
+            sum-=temp;
         }
     }
-    cout<<ans<<endl;
+    // if(is_sorted(all(a))) return true;
+    // return false;
+    loop cout<<a[i]<<" ";
+    cout<<endl;
 }
 
 int main() {
