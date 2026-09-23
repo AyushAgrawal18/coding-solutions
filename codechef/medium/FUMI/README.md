@@ -76,7 +76,7 @@ The cost of this is $1+1+1\cdot 2 = 4$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T16:22:44.972Z  
+**Submitted:** 2026-09-23T16:15:36.822Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -119,21 +119,7 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    ll n,a,b,c;
-    cin>>n>>a>>b>>c;
-    ll ans=INT_MAX;
-    for (ll x=1;x<=n;x++) {
-        ll y=n;
-        ans=min(ans,a*x+b*y+c);
-        ll k=(n-x)/x;
-        for (int i=0;i<2;i++) {
-            ll t=k+i;
-            y=max(x,n-t*x);
-            ll z=t+1;
-            ans=min(ans,a*x+b*y+c*z);
-        }
-    }
-    cout<<ans<<endl;
+    
     
 }
 
