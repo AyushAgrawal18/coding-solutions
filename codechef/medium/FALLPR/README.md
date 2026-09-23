@@ -77,7 +77,7 @@ Thus, it's impossible to make the array  *good*  after a single deletion.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:19:27.662Z  
+**Submitted:** 2026-09-23T15:21:07.471Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -141,16 +141,17 @@ inline void solve() {
             if(flag){
                 flag=false;
                 sum-=mini;
-                if(sum<0){
-                    no();
-                    return;
-                }
+                
             }
             else{
                 no();
                 return;
             }
         }
+    }
+    if(sum<0){
+        no();
+        return;
     }
     yes();
     
