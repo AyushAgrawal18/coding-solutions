@@ -42,7 +42,7 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    ll l,r;
+    
     
 }
 
