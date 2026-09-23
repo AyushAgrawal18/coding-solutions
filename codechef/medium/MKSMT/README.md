@@ -82,7 +82,7 @@ It can be verified that for any $X \gt 4$, no choice of subarray can make the ar
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:30:41.061Z  
+**Submitted:** 2026-09-23T15:29:44.067Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -129,7 +129,7 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    ll l,r;
+    
     
 }
 
