@@ -82,7 +82,7 @@ It can be verified that for any $X \gt 4$, no choice of subarray can make the ar
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:49:36.068Z  
+**Submitted:** 2026-09-23T15:49:28.063Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
