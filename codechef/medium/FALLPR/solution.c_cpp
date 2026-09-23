@@ -59,16 +59,17 @@ inline void solve() {
             if(flag){
                 flag=false;
                 sum-=mini;
-                if(sum<0){
-                    no();
-                    return;
-                }
+                
             }
             else{
                 no();
                 return;
             }
         }
+    }
+    if(sum<0){
+        no();
+        return;
     }
     yes();
     
