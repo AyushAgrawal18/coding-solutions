@@ -77,7 +77,7 @@ Thus, it's impossible to make the array  *good*  after a single deletion.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:07:33.091Z  
+**Submitted:** 2026-09-23T15:19:27.662Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -123,20 +123,29 @@ inline void solve() {
     ll n;
     cin>>n;
     vll a(n);
-    ll sum=0;
     loop{
         cin>>a[i];
     } 
-    vpll b(n+1);
-    b[0]={0,INT_MAX};
-    for(int i=1;i<n+1;i++){
-        b[i].first=b[i-1].first+a[i-1];
-        b[i].second=min(b[i-1].second, a[i-1]);
+    ll sum=a[0];
+    bool flag=true;
+    ll mini=a[0];
+    if(sum<0){
+        flag=false;
+        sum=0;
+        mini=INT_MAX;
     }
-    for(int i=1;i<=n;i++){
-        if(b[i].first>=0) continue;
-        else{
-            if(b[i].first>=b[i].second) continue;
+    for(int i=1;i<n;i++){
+        sum+=a[i];
+        mini=min(mini,a[i]);
+        if(sum<0){
+            if(flag){
+                flag=false;
+                sum-=mini;
+                if(sum<0){
+                    no();
+                    return;
+                }
+            }
             else{
                 no();
                 return;
