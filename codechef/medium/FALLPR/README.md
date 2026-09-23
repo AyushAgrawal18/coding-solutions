@@ -77,7 +77,7 @@ Thus, it's impossible to make the array  *good*  after a single deletion.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T14:58:06.920Z  
+**Submitted:** 2026-09-23T15:06:22.756Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,8 +109,8 @@ using namespace std;
 
 typedef vector<int> vi;
 typedef vector<ll> vll;
-typedef pair<int, int> pii;
-typedef vector<pii> vpii;
+typedef pair<ll, ll> pll;
+typedef vector<pll> vpll;
 
 const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
@@ -120,7 +120,29 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n;
+    cin>>n;
+    vll a(n);
+    ll sum=0;
+    loop{
+        cin>>a[i];
+    } 
+    vpll b(n+1);
+    for(int i=1;i<n+1;i++){
+        b[i].first=b[i-1].first+a[i-1];
+        b[i].second=min(b[i-1].second, a[i-1]);
+    }
+    for(int i=1;i<=n;i++){
+        if(b[i].first>=0) continue;
+        else{
+            if(b[i].first>=b[i].second) continue;
+            else{
+                no();
+                return;
+            }
+        }
+    }
+    yes();
     
 }
 
