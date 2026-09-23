@@ -46,6 +46,7 @@ inline void solve() {
         cin>>a[i];
     } 
     vpll b(n+1);
+    b[0]={0,INT_MAX};
     for(int i=1;i<n+1;i++){
         b[i].first=b[i-1].first+a[i-1];
         b[i].second=min(b[i-1].second, a[i-1]);
