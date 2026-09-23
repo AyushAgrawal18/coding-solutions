@@ -82,7 +82,7 @@ It can be verified that for any $X \gt 4$, no choice of subarray can make the ar
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:31:00.057Z  
+**Submitted:** 2026-09-23T15:54:24.330Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -122,6 +122,25 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
+bool check(ll x, vll a){
+    ll n=a.size();
+    ll sum=0;
+    loop {
+        if(a[i]>=x){
+            sum+=(a[i]-x);
+            a[i]=x;
+        }
+        else{
+            int temp=min(sum,x-a[i]);
+            a[i]+=temp;
+            sum-=temp;
+        }
+    }
+    if(is_sorted(all(a))) return true;
+    return false;
+}
+
+
 
 inline void solve() {
     // Your solution goes here
@@ -129,8 +148,23 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    ll l,r;
-    
+    if(is_sorted(all(a))){
+        cout<<-1<<endl;
+        return;
+    }
+    ll l=1, r=1e9;
+    ll ans=0;
+    while(l<=r){
+        ll mid= l+(r-l)/2;
+        if(check(mid, a)){
+            ans=mid;
+            l=mid+1;
+        }
+        else{
+            r=mid-1;
+        }
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
