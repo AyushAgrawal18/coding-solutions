@@ -86,7 +86,7 @@ Therefore, all elements of $B$ cannot be matched, and the answer is `FALSE`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T14:06:39.284Z  
+**Submitted:** 2026-09-28T14:09:29.928Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -130,6 +130,7 @@ const double PI = acos(-1);
 inline void solve() {
     // Your solution goes here
     ll n,m;
+    cin>>n>>m;
     vector<vll> a(n,vll (n));
     loop{
         for(int j=0;j<n;j++){
