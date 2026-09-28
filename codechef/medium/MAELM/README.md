@@ -86,7 +86,7 @@ Therefore, all elements of $B$ cannot be matched, and the answer is `FALSE`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T14:08:36.619Z  
+**Submitted:** 2026-09-28T14:11:59.904Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -132,36 +132,26 @@ inline void solve() {
     ll n,m;
     cin>>n>>m;
     vector<vll> a(n,vll (n));
+    map<ll,ll> freq;
     loop{
         for(int j=0;j<n;j++){
-            cin>>a[i][j];
+            ll x;
+            cin>>x;
+            freq[x]++;
         }
     }
-    vector<vll> b(m,vll (m));
     for(int i=0;i<m;i++){
         for(int j=0;j<m;j++){
-            cin>>b[i][j];
-            bool flag=false;
-            for(int k=0;k<n;k++){
-                for(int l=0;l<n;l++){
-                    if(a[k][l]==b[i][j]){
-                        a[k][l]=1e18;
-                        flag=true;
-                        break;
-                    }
-                }
-                if(flag){
-                    break;
-                }
-            }
-            if(!flag){
+            ll x;
+            cin>>x;
+            if(freq[x]==0) {
                 cout<<"FALSE"<<endl;
                 return;
             }
+            freq[x]--;
         }
     }
     cout<<"TRUE"<<endl;
-    
 }
 
 int main() {
