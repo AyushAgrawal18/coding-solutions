@@ -86,7 +86,7 @@ Therefore, all elements of $B$ cannot be matched, and the answer is `FALSE`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T13:58:00.282Z  
+**Submitted:** 2026-09-28T14:06:21.029Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -129,15 +129,45 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n,m;
+    vector<vll> a(n,vll (n));
+    loop{
+        for(int j=0;j<n;j++){
+            cin>>a[i][j];
+        }
+    }
+    vector<vll> b(m,vll (m));
+    for(int i=0;i<m;i++){
+        for(int j=0;j<m;j++){
+            cin>>b[i][j];
+            bool flag=false;
+            for(int k=0;k<n;k++){
+                for(int l=0;l<n;l++){
+                    if(a[k][l]==b[i][j]){
+                        a[k][l]=1e18;
+                        flag=true;
+                        break;
+                    }
+                }
+                if(flag){
+                    break;
+                }
+            }
+            if(!flag){
+                cout<<"FALSE"<<endl;
+                return;
+            }
+        }
+    }
+    cout<<"TRUE"<<endl;
     
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
