@@ -86,7 +86,7 @@ Therefore, all elements of $B$ cannot be matched, and the answer is `FALSE`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T13:57:53.286Z  
+**Submitted:** 2026-09-28T13:58:00.282Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
