@@ -82,7 +82,7 @@ Therefore, no energy is required.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T13:53:40.023Z  
+**Submitted:** 2026-09-28T13:55:52.292Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -125,15 +125,27 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n;
+    cin>>n;
+    vll a(n);
+    ll mini=INT_MAX;
+    loop{
+        cin>>a[i];
+        mini=min(mini,a[i]);
+    } 
+    ll cost=0;
+    loop{
+        if(a[i]==mini) continue;
+        cost+=(a[i]-mini);
+    }
+    cout<<cost<<endl;
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
