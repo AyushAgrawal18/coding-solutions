@@ -51,7 +51,7 @@ Only horizontal and vertical moves are allowed; diagonal moves are not allowed.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T14:15:56.102Z  
+**Submitted:** 2026-09-28T14:31:02.644Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -94,15 +94,40 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n,m;
+    cin>>n>>m;
+    ll x=n*m;
+    vll a(x);
+    for(int i=0;i<x;i++){
+        cin>>a[i];
+    }
+    vll ans(x);
+    ans[0]=a[0];
+    for(int i=1;i<x;i++){
+        ans[i]=a[i]+a[i-1];
+        if(a[i]==0) ans[i]=0;
+    }
+    ans[x-1]=a[x-1];
+    for(int i=x-2;i>=0;i--){
+        ll temp=a[i]+a[i+1];
+        ans[i]=min(ans[i],temp);
+    }
+    ll y=0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cout<<ans[y]<<" ";
+            y++;
+        }
+        cout<<endl;
+    }
     
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
