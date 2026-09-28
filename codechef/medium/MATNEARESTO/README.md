@@ -51,7 +51,7 @@ Only horizontal and vertical moves are allowed; diagonal moves are not allowed.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T14:31:02.644Z  
+**Submitted:** 2026-09-28T14:31:12.786Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
