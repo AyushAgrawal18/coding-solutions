@@ -83,7 +83,7 @@ Therefore, the minimum possible price is $321$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T13:48:58.024Z  
+**Submitted:** 2026-09-28T13:46:57.941Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -126,17 +126,22 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    string s;
-    cin >> s;
-    string ans = "";
-
-    for (int i=0;i<s.size();i++) {
-        string cur=s.substr(0,i)+s.substr(i+1);
-        if (ans.empty()||stoll(cur)<stoll(ans)) {
-            ans=cur;
-        }
+    ll n;
+    cin>>n;
+    ll m=n;
+    vll a;
+    while(m>0){
+        ll last=m%10;
+        m/=10;
+        a.pb(last);
     }
-    cout<<stoll(ans)<<endl;
+    ll x=1;
+    for(int i=0;i<a.size();i++){
+        a[i]=a[i]*x;
+        cout<<a[i]<<" ";
+        x=x*10;
+    }
+    cout<<endl;
     
 }
 
