@@ -60,7 +60,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:22:56.959Z  
+**Submitted:** 2026-09-30T15:22:26.260Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -112,7 +112,7 @@ inline void solve() {
         cnt++;
     }
     ll pos=k*(k-1);
-    ll ans= pos*cnt*(cnt);
+    ll ans= pos*cnt*(cnt-1);
     cout<<ans<<endl;
     
 }
