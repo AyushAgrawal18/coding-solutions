@@ -47,7 +47,7 @@ inline void solve() {
         cnt++;
     }
     ll pos=k*(k-1);
-    ll ans= pos*cnt*(cnt);
+    ll ans= pos*cnt*(cnt-1);
     cout<<ans<<endl;
     
 }
