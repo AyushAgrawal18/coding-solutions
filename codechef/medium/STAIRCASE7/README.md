@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T14:49:02.002Z  
+**Submitted:** 2026-09-30T14:41:31.705Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -101,18 +101,7 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    ll n;
-    cin>>n;
-    vll a(n);
-    loop cin>>a[i];
-    map<ll,ll> freq;
-    ll maxi=0;
-    loop{
-        ll x=a[i]-i;
-        freq[x]++;
-        maxi=max(maxi,freq[x]);
-    }
-    cout<<n-maxi<<endl;
+    
     
 }
 
