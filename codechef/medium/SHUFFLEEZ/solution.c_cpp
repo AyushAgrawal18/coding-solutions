@@ -30,7 +30,7 @@ typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll MOD = 1e9 + 7;
+const ll MOD = 998244353;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
