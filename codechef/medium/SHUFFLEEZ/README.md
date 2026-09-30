@@ -60,7 +60,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:18:28.687Z  
+**Submitted:** 2026-09-30T15:27:55.686Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -99,14 +99,31 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
+ll modpow(ll a,ll b){
+    ll ans = 1;
+    while (b>0){
+        if (b&1)
+            ans=ans*a%MOD;
+        a=a*a%MOD;
+        b>>=1;
+    }
+    return ans;
+}
+
 
 
 inline void solve() {
     // Your solution goes here
     ll n,k;
+    cin>>n>>k;
     vll a(n);
     loop cin>>a[i];
-    
+    ll ans=1;
+    for (int i=1;i<=k;i++){
+        ans=ans*i%MOD;
+    }
+    ans=ans*modpow(k,n-k)%MOD;
+    cout<<ans<<endl;
     
 }
 
