@@ -64,7 +64,7 @@ Alice
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T14:53:18.675Z  
+**Submitted:** 2026-09-30T15:03:04.406Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -107,7 +107,39 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
+    ll mn=0;
+    sort(all(a));
+    loop{
+        if(a[i]==mn) mn++;
+    }
+    // cout<<mn<<endl;
+    set<ll> s;
+    ll sum=0,ans=0;
+    loop{
+        if(a[i]>mn){
+            ans+=a[i];
+        }
+        else{
+            if(s.count(a[i])){
+                sum+=a[i];
+            }
+            else{
+                s.insert(a[i]);
+            }
+        }
+    }
+    if(ans>0) ans=ans-mn-1;
+    ans+=sum;
+    if(ans%2==0){
+        cout<<"Bob"<<endl;
+    }
+    else{
+        cout<<"Alice"<<endl;
+    }
     
 }
 
