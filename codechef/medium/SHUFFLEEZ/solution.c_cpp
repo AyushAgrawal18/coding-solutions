@@ -39,9 +39,16 @@ const double PI = acos(-1);
 inline void solve() {
     // Your solution goes here
     ll n,k;
+    cin>>n>>k;
     vll a(n);
     loop cin>>a[i];
-    
+    ll cnt=1;
+    for(int i=k;i<n;i++){
+        cnt++;
+    }
+    ll pos=k*(k-1);
+    ll ans= pos*cnt*(cnt);
+    cout<<ans<<endl;
     
 }
 
