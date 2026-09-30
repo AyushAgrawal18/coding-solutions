@@ -72,7 +72,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:33:58.978Z  
+**Submitted:** 2026-09-30T15:39:42.115Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -130,11 +130,27 @@ inline void solve() {
     cin>>n>>k;
     vll a(n);
     loop cin>>a[i];
+    ll m = n-k+1;
+    for (int i=m; i<n; i++){ 
+        if (a[i] != i+1){ 
+            cout<<0<<endl; 
+            return; 
+            
+        } 
+        
+    }
+    ll maxi=0,cnt=0;
+    for(int i=0;i<m;i++){
+        if(a[i]>maxi){
+            maxi=a[i];
+            if(maxi!=m) cnt++;
+        }
+    }
     ll ans=1;
     for (int i=1;i<=k;i++){
         ans=ans*i%MOD;
     }
-    ans=ans*modpow(k,n-k)%MOD;
+    ans=ans*modpow(k,cnt)%MOD;
     cout<<ans<<endl;
     
 }
