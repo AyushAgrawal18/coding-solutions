@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T14:48:39.705Z  
+**Submitted:** 2026-09-30T14:49:09.937Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -110,9 +110,9 @@ inline void solve() {
     loop{
         ll x=a[i]-i;
         freq[x]++;
-        mx=max(maxi,freq[x]);
+        maxi=max(maxi,freq[x]);
     }
-    cout<<n-mx<<endl;
+    cout<<n-maxi<<endl;
     
 }
 
