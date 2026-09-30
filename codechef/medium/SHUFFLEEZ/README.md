@@ -60,7 +60,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:27:55.686Z  
+**Submitted:** 2026-09-30T15:28:06.694Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -95,7 +95,7 @@ typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll MOD = 1e9 + 7;
+const ll MOD = 998244353;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
