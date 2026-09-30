@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T14:46:04.716Z  
+**Submitted:** 2026-09-30T14:48:39.705Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -105,13 +105,14 @@ inline void solve() {
     cin>>n;
     vll a(n);
     loop cin>>a[i];
-    ll cnt=0;
-    for(int i=1;i<n;i++){
-        ll x=a[i]-a[i-1];
-        if(x!=1) cnt++; 
+    map<ll,ll> freq;
+    ll maxi=0;
+    loop{
+        ll x=a[i]-i;
+        freq[x]++;
+        mx=max(maxi,freq[x]);
     }
-    ll cnt2=0;
-    cout<<cnt<<endl;
+    cout<<n-mx<<endl;
     
 }
 
