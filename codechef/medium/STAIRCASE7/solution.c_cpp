@@ -38,7 +38,18 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
+    map<ll,ll> freq;
+    ll maxi=0;
+    loop{
+        ll x=a[i]-i;
+        freq[x]++;
+        mx=max(maxi,freq[x]);
+    }
+    cout<<n-mx<<endl;
     
 }
 
