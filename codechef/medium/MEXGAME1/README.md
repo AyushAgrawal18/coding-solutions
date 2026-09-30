@@ -64,7 +64,7 @@ Alice
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:03:04.406Z  
+**Submitted:** 2026-09-30T15:07:14.727Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -121,7 +121,7 @@ inline void solve() {
     ll sum=0,ans=0;
     loop{
         if(a[i]>mn){
-            ans+=a[i];
+            ans+=a[i]-mn-1;
         }
         else{
             if(s.count(a[i])){
@@ -132,7 +132,6 @@ inline void solve() {
             }
         }
     }
-    if(ans>0) ans=ans-mn-1;
     ans+=sum;
     if(ans%2==0){
         cout<<"Bob"<<endl;
