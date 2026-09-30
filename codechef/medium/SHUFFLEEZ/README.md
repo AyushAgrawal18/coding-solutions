@@ -60,7 +60,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:18:34.692Z  
+**Submitted:** 2026-09-30T15:22:56.959Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -104,9 +104,16 @@ const double PI = acos(-1);
 inline void solve() {
     // Your solution goes here
     ll n,k;
+    cin>>n>>k;
     vll a(n);
     loop cin>>a[i];
-    
+    ll cnt=1;
+    for(int i=k;i<n;i++){
+        cnt++;
+    }
+    ll pos=k*(k-1);
+    ll ans= pos*cnt*(cnt);
+    cout<<ans<<endl;
     
 }
 
