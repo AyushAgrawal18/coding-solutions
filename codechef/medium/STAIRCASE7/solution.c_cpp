@@ -47,9 +47,9 @@ inline void solve() {
     loop{
         ll x=a[i]-i;
         freq[x]++;
-        mx=max(maxi,freq[x]);
+        maxi=max(maxi,freq[x]);
     }
-    cout<<n-mx<<endl;
+    cout<<n-maxi<<endl;
     
 }
 
