@@ -60,7 +60,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:28:06.694Z  
+**Submitted:** 2026-09-30T15:25:56.280Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -95,7 +95,7 @@ typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll MOD = 998244353;
+const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
@@ -116,14 +116,32 @@ inline void solve() {
     // Your solution goes here
     ll n,k;
     cin>>n>>k;
-    vll a(n);
-    loop cin>>a[i];
-    ll ans=1;
-    for (int i=1;i<=k;i++){
-        ans=ans*i%MOD;
+    // vll a(n);
+    // loop cin>>a[i];
+    // ll cnt=1;
+    // for(int i=k;i<n;i++){
+    //     cnt++;
+    // }
+    // ll pos=k*(k-1);
+    // ll ans= pos*cnt*(cnt);
+    // cout<<ans<<endl;
+    
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
     }
-    ans=ans*modpow(k,n-k)%MOD;
-    cout<<ans<<endl;
+
+    // K!
+    ll ans = 1;
+
+    for (int i = 1; i <= k; i++) {
+        ans = ans * i % MOD;
+    }
+
+    // K^(N-K)
+    ans = ans * modpow(k, n - k) % MOD;
+
+    cout << ans << '\n';
     
 }
 
