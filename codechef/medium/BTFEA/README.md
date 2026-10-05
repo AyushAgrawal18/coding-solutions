@@ -87,7 +87,7 @@ $6+8+9=23$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T14:41:57.197Z  
+**Submitted:** 2026-10-05T14:42:17.053Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -160,7 +160,7 @@ inline void solve() {
     }
     ll ans=0;
     ll maxi=*max_element(a.begin(), a.end());
-    vector<vll> dp(n+1, vll (max+1, -1));
+    vector<vll> dp(n+1, vll (maxi+1, -1));
     for(int i=0;i<n;i++){
         ll need=a[i];
         ll temp=res(m-1,need,b,c, dp);
