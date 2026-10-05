@@ -53,6 +53,8 @@ inline void solve() {
     cin>>n;
     up.resize(n+1,vll (30));
     depth.resize(n+1);
+    ll x,y;
+    cin>>x>>y;
     
     
 }
