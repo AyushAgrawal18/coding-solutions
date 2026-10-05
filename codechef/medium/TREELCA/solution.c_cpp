@@ -36,34 +36,69 @@ const double PI = acos(-1);
 
 vector<vll> up;
 vll depth;
+vll parent;
+vector<vll> adj;
+
 
 int lca(ll x, ll y){
-    
+    if(depth[x]<depth[y]) swap(x,y);
+    ll diff=abs(depth[x]-depth[y]);
+    for(int i=0;i<30;i++){
+        if((1<<i)&diff) x=up[x][i];
+    }
+    for(int i=29;i>=0;i--){
+        if(up[x][i]==up[y][i]) continue;
+        x=up[x][i],y=up[y][i];
+    }
+    return up[x][0];
 }
 
-int dfs(int root, int parents){
-    
+void dfs(int root, int parents,vector<vll> &adj,vll &depth, vll &parent){
+    for(auto child: adj[root]){
+        if(child==parents) continue;
+        depth[child]=depth[root]+1;
+        parent[child]=root;
+        dfs(child, root, adj, depth,parent);
+    }
 }
 
 
 
 inline void solve() {
     // Your solution goes here
+    
     ll n;
     cin>>n;
     up.resize(n+1,vll (30));
     depth.resize(n+1);
+    parent.resize(n+1);
     ll x,y;
     cin>>x>>y;
+    adj.resize(n+1);
+    for(int i=1;i<n;i++){
+        ll a,b;
+        cin>>a>>b;
+        adj[a].pb(b);
+        adj[b].pb(a);
+    }
+    dfs(1,0,adj,depth, parent);
     
-    
+    for(int i=1;i<=n;i++){
+        up[i][0]=parent[i];
+    }
+    for(int j=1;j<30;j++){
+        for(int i=1;i<=n;i++){
+            up[i][j]=up[up[i][j-1]][j-1];
+        }
+    }
+    cout<<lca(x,y)<<endl;
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
