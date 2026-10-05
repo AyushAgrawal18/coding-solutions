@@ -35,20 +35,21 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
-ll res(int i, ll need, vll &b, vll &c){
+ll res(int i, ll need, vll &b, vll &c,vector<vll> &dp){
     if(i<0){
         if(need>0) return 1e18;
         else return 0;
     }
+    if(dp[i][need]!=-1) return dp[i][need];
     
     
-    ll take=0;
+    ll take=INF;
     if(need>=b[i]){
-        take=c[i]+res(i,need-b[i],b,c);
+        take=c[i]+res(i,need-b[i],b,c, dp);
     }
-    ll not_take=res(i-1, need, b, c);
+    ll not_take=res(i-1, need, b, c, dp);
     
-    return min(take,not_take);
+    return dp[i][need]=min(take,not_take);
 }
 
 
@@ -66,11 +67,12 @@ inline void solve() {
         cin>>c[i];
     }
     ll ans=0;
+    ll maxi=*max_element(a.begin(), a.end());
+    vector<vll> dp(n+1, vll (maxi+1, -1));
     for(int i=0;i<n;i++){
         ll need=a[i];
-        ll temp=res(m-1,a[i],b,c);
-        if(temp==1e18) continue;
-        ans+=temp;
+        ll temp=res(m-1,need,b,c, dp);
+        if(temp!=1e18) ans+=temp;
     }
     cout<<ans<<endl;
 }
