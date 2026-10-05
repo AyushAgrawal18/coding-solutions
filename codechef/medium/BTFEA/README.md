@@ -87,7 +87,7 @@ $6+8+9=23$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T14:13:57.707Z  
+**Submitted:** 2026-10-05T14:14:26.714Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
