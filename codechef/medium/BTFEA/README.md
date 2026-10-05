@@ -87,7 +87,7 @@ $6+8+9=23$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T14:33:08.708Z  
+**Submitted:** 2026-10-05T14:27:59.707Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -160,7 +160,7 @@ inline void solve() {
     ll ans=0;
     for(int i=0;i<n;i++){
         ll need=a[i];
-        ll temp=res(m-1,need,b,c);
+        ll temp=res(m-1,a[i],b,c);
         if(temp==1e18) continue;
         ans+=temp;
     }
