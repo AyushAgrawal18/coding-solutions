@@ -35,21 +35,51 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
+ll res(int i, ll need, vll &b, vll &c){
+    if(i<0){
+        if(need>0) return 1e18;
+        else return 0;
+    }
+    
+    
+    ll take=0;
+    if(need>=b[i]){
+        take=c[i]+res(i,need-b[i],b,c);
+    }
+    ll not_take=res(i-1, need, b, c);
+    
+    return min(take,not_take);
+}
+
+
 
 inline void solve() {
     // Your solution goes here
     ll n,m;
     cin>>n>>m;
-    vll a(n);
+    vll a(n),b(m),c(m);
     loop cin>>a[i];
-    
+    for(int i=0;i<m;i++){
+        cin>>b[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>c[i];
+    }
+    ll ans=0;
+    for(int i=0;i<n;i++){
+        ll need=a[i];
+        ll temp=res(m-1,a[i],b,c);
+        if(temp==1e18) continue;
+        ans+=temp;
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
