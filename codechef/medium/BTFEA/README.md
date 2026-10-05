@@ -87,7 +87,7 @@ $6+8+9=23$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T14:14:41.711Z  
+**Submitted:** 2026-10-05T14:41:55.716Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -127,21 +127,53 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
+ll res(int i, ll need, vll &b, vll &c,vector<vll> &dp){
+    if(i<0){
+        if(need>0) return 1e18;
+        else return 0;
+    }
+    if(dp[i][need]!=-1) return dp[i][need];
+    
+    
+    ll take=INF;
+    if(need>=b[i]){
+        take=c[i]+res(i,need-b[i],b,c, dp);
+    }
+    ll not_take=res(i-1, need, b, c, dp);
+    
+    return dp[i][need]=min(take,not_take);
+}
+
+
 
 inline void solve() {
     // Your solution goes here
     ll n,m;
     cin>>n>>m;
-    vll a(n);
+    vll a(n),b(m),c(m);
     loop cin>>a[i];
-    
+    for(int i=0;i<m;i++){
+        cin>>b[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>c[i];
+    }
+    ll ans=0;
+    ll maxi=*max_element(a.begin(), a.end());
+    vector<vll> dp(n+1, vll (max+1, -1));
+    for(int i=0;i<n;i++){
+        ll need=a[i];
+        ll temp=res(m-1,need,b,c, dp);
+        if(temp!=1e18) ans+=temp;
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
