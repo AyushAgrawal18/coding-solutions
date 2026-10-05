@@ -38,7 +38,10 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n,m;
+    cin>>n>>m;
+    vll a(n);
+    loop cin>>a[i];
     
 }
 
