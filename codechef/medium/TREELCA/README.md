@@ -42,7 +42,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T14:07:53.201Z  
+**Submitted:** 2026-10-05T14:09:08.586Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -91,8 +91,9 @@ int lca(ll x, ll y){
     if(depth[x]<depth[y]) swap(x,y);
     ll diff=abs(depth[x]-depth[y]);
     for(int i=0;i<30;i++){
-        if((1<<i)&diff) x=up[x][i];
+        if((1LL<<i)&diff) x=up[x][i];
     }
+    if(x==y) return x;
     for(int i=29;i>=0;i--){
         if(up[x][i]==up[y][i]) continue;
         x=up[x][i],y=up[y][i];
