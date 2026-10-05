@@ -42,7 +42,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T13:48:28.556Z  
+**Submitted:** 2026-10-05T13:49:10.557Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -100,6 +100,8 @@ inline void solve() {
     cin>>n;
     up.resize(n+1,vll (30));
     depth.resize(n+1);
+    ll x,y;
+    cin>>x>>y;
     
     
 }
