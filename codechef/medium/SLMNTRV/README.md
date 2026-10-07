@@ -73,7 +73,7 @@ Hence the route is valid. Other valid permutations would also be accepted.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T15:16:36.237Z  
+**Submitted:** 2026-10-07T15:15:38.181Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
