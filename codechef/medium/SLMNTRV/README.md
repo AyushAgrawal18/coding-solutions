@@ -73,7 +73,7 @@ Hence the route is valid. Other valid permutations would also be accepted.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T15:38:30.284Z  
+**Submitted:** 2026-10-07T14:51:58.662Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -119,51 +119,13 @@ inline void solve() {
     ll n,k;
     cin>>n>>k;
     vll ans;
-    vll temp(n+1, 0);
+    // ans.push_back(n);
+    // ans.pb(n-1);
     for(int i=1;i<=n;i++){
-        if(temp[i]) continue;
-        bool flag=false;
-        for(int j=i+1;j<=n;j++){
-            if(temp[j]) continue;
-            ll pro=i*j;
-            bool ff=false;
-            for(int x=1;x*x<=pro+k;x++){
-                if(abs(pro-(x*x))<=k){
-                    ff=true;
-                    break;
-                }
-            }
-            if(ff){
-                ans.pb(i);
-                ans.pb(j);
-                temp[i]=1;
-                temp[j]=1;
-                flag=true;
-                break;
-            }
-        }
-        if(!flag){
-            ll rem=0;
-            for(int x=1;x<=n;x++){
-                if(temp[x]==0) rem++;
-            }
-            if(rem==1){
-                for(int x=1;x<=n;x++){
-                    if(temp[x]==0){
-                        ans.pb(x);
-                        break;
-                    }
-                }
-            }
-            else{
-                cout<<-1<<endl;
-                return;
-            }
-        }
+        ans.pb(i);
     }
-    for(int i=0;i<n;i++) cout<<ans[i]<<" ";
+    loop cout<<ans[i]<<" ";
     cout<<endl;
-    
 }
 
 int main() {
