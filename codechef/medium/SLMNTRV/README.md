@@ -73,7 +73,7 @@ Hence the route is valid. Other valid permutations would also be accepted.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T14:51:26.072Z  
+**Submitted:** 2026-10-07T14:53:15.590Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -119,9 +119,9 @@ inline void solve() {
     ll n,k;
     cin>>n>>k;
     vll ans;
-    ans.push_back(n);
-    ans.pb(n-1);
-    for(int i=1;i<=n-2;i++){
+    // ans.push_back(n);
+    // ans.pb(n-1);
+    for(int i=n;i>=1;i--){
         ans.pb(i);
     }
     loop cout<<ans[i]<<" ";
