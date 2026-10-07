@@ -72,7 +72,7 @@ NO
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T14:40:24.482Z  
+**Submitted:** 2026-10-07T14:35:59.266Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -115,18 +115,7 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    ll n;
-    cin>>n;
-    string s,t;
-    cin>>s>>t;
-    ll a=0,b=0;
-    loop {
-        if(s[i]=='1') a++;
-        if(t[i]=='1') b++;
-    }
-    ll diff=abs(a-b);
-    if(diff%2==0) yes();
-    else no();
+    
     
 }
 
