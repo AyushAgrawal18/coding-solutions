@@ -73,7 +73,7 @@ Hence the route is valid. Other valid permutations would also be accepted.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T14:48:28.725Z  
+**Submitted:** 2026-10-07T14:51:26.072Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -116,8 +116,16 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n,k;
+    cin>>n>>k;
+    vll ans;
+    ans.push_back(n);
+    ans.pb(n-1);
+    for(int i=1;i<=n-2;i++){
+        ans.pb(i);
+    }
+    loop cout<<ans[i]<<" ";
+    cout<<endl;
 }
 
 int main() {
