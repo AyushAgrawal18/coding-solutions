@@ -71,7 +71,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T14:54:12.600Z  
+**Submitted:** 2026-10-07T15:07:20.673Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -96,7 +96,7 @@ using namespace std;
 #define sz(v) ((int)(v).size())
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define repr(i, a, b) for (int i = a; i >= b; --i)
-#define loop for(int i = 0; i < n; i++)
+#define loop for(int i = 0; i < n-1; i++)
 #define rloop for(int i = n-1; i >= 0; i--)
 #define yes() cout << "YES\n"
 #define no() cout << "NO\n"
@@ -114,8 +114,50 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n;
+    cin>>n;
+    vector<vll> adj(n+1);
+    loop{
+        ll u,v;
+        cin>>u>>v;
+        adj[u].pb(v);
+        adj[v].pb(u);
+    }
+    ll l=0;
+    vll leafcnt(n+1,0);
+    for (int u=1;u<=n;u++){
+        if(adj[u].size()==1){
+            l++;
+        }
+    }
+    for (int u=1;u<=n;u++){
+        if (adj[u].size() == 1){
+            int v = adj[u][0];
+            leafcnt[v]++;
+        }
+    }
+    ll bad=l*(n-2);
+    for (int v=1;v<=n;v++) {
+        ll c=leafcnt[v];
+        bad-=c*(c-1)/2;
+    }
+    for (int u=1;u<=n;u++) {
+        if (adj[u].size()==2) {
+            bool flag=false;
+            for (int v:adj[u]){
+                if (adj[v].size()==1) {
+                    flag=true;
+                    break;
+                }
+            }
+            if (!flag){
+                bad++;
+            }
+        }
+    }
+    ll ans=n*(n-1)*(n-2)/6;
+
+    cout<<ans-bad<<endl;
 }
 
 int main() {
