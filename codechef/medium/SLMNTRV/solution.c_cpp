@@ -38,8 +38,16 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n,k;
+    cin>>n>>k;
+    vll ans;
+    ans.push_back(n);
+    ans.pb(n-1);
+    for(int i=1;i<=n-2;i++){
+        ans.pb(i);
+    }
+    loop cout<<ans[i]<<" ";
+    cout<<endl;
 }
 
 int main() {
