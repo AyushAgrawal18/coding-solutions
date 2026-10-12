@@ -76,7 +76,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T13:43:22.349Z  
+**Submitted:** 2026-10-12T13:50:56.971Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -119,8 +119,27 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n,m;
+    cin>>n>>m;
+    vll a(n);
+    loop cin>>a[i];
+    ll cnt=0,ans=0;
+    for(int i=0;i<n;i++){
+        if(a[i]<=m){
+            cnt++;
+            m-=a[i];
+        }
+        else{
+            while(cnt>0){
+                m+=a[i-cnt];
+                cnt--;
+                if(m>=a[i]) break;
+            }
+            
+        }
+        ans=max(ans,cnt);
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
