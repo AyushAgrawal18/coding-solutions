@@ -76,7 +76,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T13:50:56.971Z  
+**Submitted:** 2026-10-12T13:53:28.742Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -123,19 +123,14 @@ inline void solve() {
     cin>>n>>m;
     vll a(n);
     loop cin>>a[i];
-    ll cnt=0,ans=0;
+    ll cnt=0,ans=0,sum=0,l=0;
     for(int i=0;i<n;i++){
-        if(a[i]<=m){
-            cnt++;
-            m-=a[i];
-        }
-        else{
-            while(cnt>0){
-                m+=a[i-cnt];
-                cnt--;
-                if(m>=a[i]) break;
-            }
-            
+        sum+=a[i];
+        cnt++;
+        while(sum>m&&l<=i){
+            sum-=a[l];
+            cnt--;
+            l++;
         }
         ans=max(ans,cnt);
     }
