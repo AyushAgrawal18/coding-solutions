@@ -40,16 +40,37 @@ inline void solve() {
     // Your solution goes here
     ll n,k,p;
     cin>>n>>k>>p;
-    vll a(n);
-    
+    vpii a(n);
+    loop{
+        cin>>a[i].first;
+        a[i].second=i;
+    }
+    sort(all(a));
+    vll c(n);
+    ll id=0;
+    c[a[0].second]=id;
+    for(int i=1;i<n;i++){
+        if(a[i].first-a[i-1].first>k){
+            id++;
+        }
+        c[a[i].second]=id;
+    }
+    while(p--){
+        ll u,v;
+        cin>>u>>v;
+        u--,v--;
+        if(c[u]==c[v]) yes();
+        else no();
+    }
+
     
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
