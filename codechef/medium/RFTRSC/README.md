@@ -76,7 +76,7 @@ From building $1$, the hero can reach buildings $2$ and $3$. Neither provides a 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T13:56:35.947Z  
+**Submitted:** 2026-10-12T14:01:03.168Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -119,15 +119,44 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n,m;
+    cin>>n>>m;
+    vector<vll> adj(n+1);
+    for (int i=0;i<m;i++) {
+        ll u,v;
+        cin>>u>>v;
+        adj[u].pb(v);
+        adj[v].pb(u);
+    }
+    ll s,t;
+    cin>>s>>t;
+    vll d(n+1,-1);
+    queue<ll> q;
+    q.push(s);
+    d[s]=0;
+    while (!q.empty()){
+        ll u=q.front();
+        q.pop();
+        if (u==t) {
+            cout<<d[u]<<endl;
+            return;
+        }
+        for(ll v:adj[u]){
+            if(d[v]==-1){
+                d[v]=d[u]+1;
+                q.push(v);
+            }
+        }
+    }
+    cout<<0<<endl;
     
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
