@@ -76,7 +76,7 @@ From building $1$, the hero can reach buildings $2$ and $3$. Neither provides a 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T13:54:39.841Z  
+**Submitted:** 2026-10-12T13:56:35.947Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
