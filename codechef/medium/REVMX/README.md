@@ -62,7 +62,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T15:19:43.582Z  
+**Submitted:** 2026-10-14T15:21:39.058Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -111,6 +111,7 @@ inline void solve() {
     for(int i=1;i<=n;i++) cin>>a[i];
     vpii pos;
     vll pref(n+1);
+    ll cnt=0;
     for(int i=1;i<=n;i++){
         pos.pb({i+a[i],i});
         if(a[i]==i) cnt++;
@@ -118,13 +119,13 @@ inline void solve() {
     }
     sort(all(pos));
     ll ans=cnt;
-    for(int i=1;i<=n;i++){
+    for(ll i=1;i<=n;i++){
         ll l=min(a[i],i);
         ll r=max(a[i],i);
         ll x=i+a[i];
         
-        ll low=lower_bound(all(pos),make_pair(s,l));
-        ll high=upper_bound(all(pos),make_pair(s,r));
+        pii low=lower_bound(all(pos),make_pair(x,l));
+        pii high=upper_bound(all(pos),make_pair(x,r));
         
         ll count=high-low;
         ans=max(ans,cnt+count-(pref[r]-pref[l-1]));
