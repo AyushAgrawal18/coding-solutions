@@ -72,7 +72,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T15:54:02.541Z  
+**Submitted:** 2026-10-14T15:55:43.251Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -107,7 +107,7 @@ typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll MOD = ;
+const ll MOD = 998244353;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
@@ -123,8 +123,8 @@ inline void solve() {
     for(int i=0;i<(1<<n);i++){
         vll a,b;
         for(int j=0;j<n;j++){
-            if(i&(1<<j)) a.pb(c[i]);
-            else b.pb(c[i]);
+            if(i&(1<<j)) a.pb(c[j]);
+            else b.pb(c[j]);
         }
         vll x;
         ll p=0,q=0;
@@ -136,7 +136,7 @@ inline void solve() {
             x.pb(a[p++]);
         }
         while(q<b.size()){
-            x.pb(a[q++]);
+            x.pb(b[q++]);
         }
         if(x==c){
             ll cnt=__builtin_popcount(i);
@@ -145,8 +145,9 @@ inline void solve() {
         }
     }
     for(int i=0;i<=n;i++){
-        cout<<ans[i]<<endl;
+        cout<<ans[i]<<" ";
     }
+    cout<<endl;
 }
 
 int main() {
