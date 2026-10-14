@@ -43,11 +43,9 @@ inline void solve() {
     vll a(n);
     loop cin>>a[i];
     sort(all(a));
-    ll ans=0;
-    for(int i=0;i<min(n,k+1);i++){
-        ans+=a[i];
-    }
-    cout<<ans<<endl;
+    ll maxi=a[n-1];
+    ll sum=a[0]+a[1];
+    cout<<min(maxi,sum)<<endl;
 }
 
 int main() {
