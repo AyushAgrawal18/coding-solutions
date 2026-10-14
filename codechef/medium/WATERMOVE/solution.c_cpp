@@ -45,7 +45,7 @@ inline void solve() {
     sort(all(a));
     ll maxi=a[n-1];
     ll sum=a[0]+a[1];
-    cout<<min(maxi,sum)<<endl;
+    cout<<max(maxi,sum)<<endl;
 }
 
 int main() {
