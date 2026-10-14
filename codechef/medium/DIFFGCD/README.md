@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T14:37:44.344Z  
+**Submitted:** 2026-10-14T14:43:19.327Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -97,7 +97,10 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n;
+    cin>>n;
+    // gcd(x,y)=d that means, gcd(x,d)=d
+    // x=k*d and y=(k+1)*d  OR y=k*d and x=(k+1)*d
     
 }
 
