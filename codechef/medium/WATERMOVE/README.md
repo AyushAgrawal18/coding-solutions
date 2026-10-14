@@ -63,7 +63,7 @@ At the end, the array is $[0, 5, 0, 5, 5]$, and the maximum is $5$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T14:33:41.091Z  
+**Submitted:** 2026-10-14T14:33:47.073Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
