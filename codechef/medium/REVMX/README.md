@@ -62,7 +62,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T14:54:14.964Z  
+**Submitted:** 2026-10-14T15:19:43.582Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -94,7 +94,7 @@ using namespace std;
 
 typedef vector<int> vi;
 typedef vector<ll> vll;
-typedef pair<int, int> pii;
+typedef pair<ll, ll> pii;
 typedef vector<pii> vpii;
 
 const ll MOD = 1e9 + 7;
@@ -105,8 +105,31 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n;
+    cin>>n;
+    vll a(n+1);
+    for(int i=1;i<=n;i++) cin>>a[i];
+    vpii pos;
+    vll pref(n+1);
+    for(int i=1;i<=n;i++){
+        pos.pb({i+a[i],i});
+        if(a[i]==i) cnt++;
+        pref[i]=pref[i-1]+(a[i]==1);
+    }
+    sort(all(pos));
+    ll ans=cnt;
+    for(int i=1;i<=n;i++){
+        ll l=min(a[i],i);
+        ll r=max(a[i],i);
+        ll x=i+a[i];
+        
+        ll low=lower_bound(all(pos),make_pair(s,l));
+        ll high=upper_bound(all(pos),make_pair(s,r));
+        
+        ll count=high-low;
+        ans=max(ans,cnt+count-(pref[r]-pref[l-1]));
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
