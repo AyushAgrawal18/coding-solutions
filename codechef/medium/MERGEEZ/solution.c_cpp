@@ -42,35 +42,74 @@ inline void solve() {
     cin>>n;
     vll c(n);
     loop cin>>c[i];
-    vll ans(n+1,0);
-    for(int i=0;i<(1<<n);i++){
-        vll a,b;
-        for(int j=0;j<n;j++){
-            if(i&(1<<j)) a.pb(c[j]);
-            else b.pb(c[j]);
+    
+    vll ng(n,n);
+    stack<int> st;
+    for(int i=n-1;i>=0;i--){
+        while(!st.empty()&&c[st.top()]<c[i]) st.pop();
+        if(!st.empty()) ng[i]=st.top();
+        st.push(i);
+    }
+    vector<vll> dp(n);
+    for(int i=n-1;i>=0;i--){
+        dp[i].assign(n-i+1,0);
+        int j=ng[i];
+        if(j==n){
+            dp[i][n-i]=1;
+            continue;
         }
-        vll x;
-        ll p=0,q=0;
-        while(p<a.size()&&q<b.size()){
-            if(a[p]<b[q]) x.pb(a[p++]);
-            else x.pb(b[q++]);
+        ll d=j-i;
+        for(int k=0;k<dp[j].size();k++){
+            dp[i][k]+=dp[j][k];
+            dp[i][k+d]+=dp[j][k];
         }
-        while(p<a.size()){
-            x.pb(a[p++]);
-        }
-        while(q<b.size()){
-            x.pb(b[q++]);
-        }
-        if(x==c){
-            ll cnt=__builtin_popcount(i);
-            ans[cnt]++;
-            ans[cnt]%=MOD;
+        dp[i][d]++;
+        for(int k=0;k<dp[i].size();k++){
+            dp[i][k]%=MOD;
         }
     }
     for(int i=0;i<=n;i++){
-        cout<<ans[i]<<" ";
+        ll ans;
+        if(i<dp[0].size()) ans=dp[0][i];
+        else ans=0;
+        if(i==0) ans=(ans+1)%MOD;
+        cout<<ans<<" ";
     }
     cout<<endl;
+    
+    
+    
+    
+    
+    // vll ans(n+1,0);
+    // for(int i=0;i<(1<<n);i++){
+    //     vll a,b;
+    //     for(int j=0;j<n;j++){
+    //         if(i&(1<<j)) a.pb(c[j]);
+    //         else b.pb(c[j]);
+    //     }
+    //     vll x;
+    //     ll p=0,q=0;
+    //     while(p<a.size()&&q<b.size()){
+    //         if(a[p]<b[q]) x.pb(a[p++]);
+    //         else x.pb(b[q++]);
+    //     }
+    //     while(p<a.size()){
+    //         x.pb(a[p++]);
+    //     }
+    //     while(q<b.size()){
+    //         x.pb(b[q++]);
+    //     }
+    //     if(x==c){
+    //         ll cnt=__builtin_popcount(i);
+    //         ans[cnt]++;
+    //         ans[cnt]%=MOD;
+    //     }
+    // }
+    // for(int i=0;i<=n;i++){
+    //     cout<<ans[i]<<" ";
+    // }
+    // cout<<endl;
 }
 
 int main() {
