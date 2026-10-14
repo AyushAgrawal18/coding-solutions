@@ -72,7 +72,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T15:41:35.954Z  
+**Submitted:** 2026-10-14T15:54:02.541Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -107,7 +107,7 @@ typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll MOD = 1e9 + 7;
+const ll MOD = ;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
@@ -115,8 +115,38 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n;
+    cin>>n;
+    vll c(n);
+    loop cin>>c[i];
+    vll ans(n+1,0);
+    for(int i=0;i<(1<<n);i++){
+        vll a,b;
+        for(int j=0;j<n;j++){
+            if(i&(1<<j)) a.pb(c[i]);
+            else b.pb(c[i]);
+        }
+        vll x;
+        ll p=0,q=0;
+        while(p<a.size()&&q<b.size()){
+            if(a[p]<b[q]) x.pb(a[p++]);
+            else x.pb(b[q++]);
+        }
+        while(p<a.size()){
+            x.pb(a[p++]);
+        }
+        while(q<b.size()){
+            x.pb(a[q++]);
+        }
+        if(x==c){
+            ll cnt=__builtin_popcount(i);
+            ans[cnt]++;
+            ans[cnt]%=MOD;
+        }
+    }
+    for(int i=0;i<=n;i++){
+        cout<<ans[i]<<endl;
+    }
 }
 
 int main() {
