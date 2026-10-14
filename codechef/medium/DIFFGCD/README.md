@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T14:43:19.327Z  
+**Submitted:** 2026-10-14T14:52:47.995Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -100,7 +100,17 @@ inline void solve() {
     ll n;
     cin>>n;
     // gcd(x,y)=d that means, gcd(x,d)=d
-    // x=k*d and y=(k+1)*d  OR y=k*d and x=(k+1)*d
+    // x=k*d and y=(k+1)*d (x<y) ((K+1)*d<=n)
+    ll ans=0;
+    ll m=n/2;
+    ll j=0;
+    for(ll i=1;i<=m;i=j+1){
+        ll a=n/i;
+        j=min(m,n/a);
+        ans+=(j-i+1)*(a-1);
+    }
+    cout<<ans<<endl;
+    
     
 }
 
