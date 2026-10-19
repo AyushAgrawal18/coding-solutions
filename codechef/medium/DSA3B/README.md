@@ -77,7 +77,7 @@ Note that the subarrays are traversed from left to right.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-19T13:43:47.300Z  
+**Submitted:** 2026-10-19T13:51:30.297Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -120,6 +120,16 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
+    ll n,x;
+    cin>>n>>x;
+    vll a(n);
+    loop cin>>a[i];
+    vll ans;
+    ll maxi=0;
+    for(int i=0;i<x;i++){
+        maxi=max(maxi,a[i]);
+    }
+    ans.pb(maxi);
     
     
 }
