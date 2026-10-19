@@ -66,7 +66,7 @@ The total learning value is $9 + 13 = 22$, which is the maximum possible.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-19T14:15:48.221Z  
+**Submitted:** 2026-10-19T14:19:00.153Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -128,11 +128,15 @@ inline void solve() {
         repr(j,x,b[i]){
             ndp[j]=max(ndp[j],dp[j-b[i]]+sum[i]);
         }
+        vll temp = dp;
         rep(k,0,n) {
             if(a[k]!=i) continue;
             repr(j,x,p[k]){
-                ndp[j]=max(ndp[j],dp[j-p[k]]+v[k]);
+                temp[j]=max(temp[j],temp[j-p[k]]+v[k]);
             }
+        }
+        rep(j,0,x+1){
+            ndp[j]=max(ndp[j],temp[j]);
         }
         dp=ndp;
     }
