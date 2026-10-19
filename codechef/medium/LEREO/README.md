@@ -66,7 +66,7 @@ The total learning value is $9 + 13 = 22$, which is the maximum possible.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-19T14:07:07.977Z  
+**Submitted:** 2026-10-19T14:12:56.887Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,15 +109,41 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n,m,x;
+    cin>>n>>m>>x;
+    vll a(n),p(n),v(n);
+    vll b(m+1);
+    vll sum(m+1,0);
+
+    loop{
+        cin>>a[i]>>p[i]>>v[i];
+        sum[a[i]]+=v[i];
+    }
+    rep(i,1,m+1){
+        cin>>b[i];
+    }
+    vll dp(x+1,0);
+    rep(i,1,m+1) {
+        repr(j,x,b[i]){
+            dp[j]=max(dp[j],dp[j-b[i]]+sum[i]);
+        }
+        rep(k,0,n) {
+            if(a[k]!=i) continue;
+            repr(j,x,p[k]){
+                dp[j]=max(dp[j],dp[j-p[k]]+v[k]);
+            }
+        }
+    }
+
+    cout<<dp[x]<<endl;
     
 }
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
