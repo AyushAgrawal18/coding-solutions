@@ -79,7 +79,7 @@ All available denominations are even, so every total formed using them is even. 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-19T14:04:23.787Z  
+**Submitted:** 2026-10-19T14:04:28.029Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
