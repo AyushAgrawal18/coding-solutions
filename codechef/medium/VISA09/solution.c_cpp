@@ -58,9 +58,7 @@ inline void solve() {
     vll a(n);
     loop cin>>a[i];
     vector<vll> dp(n,vll(s+1,-1));
-    ll res=ans(n-1,a,s,dp);
-    if(res==1e18) res=-1;
-    cout<<res<<endl;
+    cout<<ans(n-1,a,s,dp)<<endl;
     
 }
 
