@@ -79,7 +79,7 @@ All available denominations are even, so every total formed using them is even. 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-19T14:05:25.017Z  
+**Submitted:** 2026-10-19T14:04:23.787Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -142,9 +142,7 @@ inline void solve() {
     vll a(n);
     loop cin>>a[i];
     vector<vll> dp(n,vll(s+1,-1));
-    ll res=ans(n-1,a,s,dp);
-    if(res==1e18) res=-1;
-    cout<<res<<endl;
+    cout<<ans(n-1,a,s,dp)<<endl;
     
 }
 
