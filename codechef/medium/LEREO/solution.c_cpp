@@ -53,15 +53,17 @@ inline void solve() {
     }
     vll dp(x+1,0);
     rep(i,1,m+1) {
+        vll ndp=dp;
         repr(j,x,b[i]){
-            dp[j]=max(dp[j],dp[j-b[i]]+sum[i]);
+            ndp[j]=max(ndp[j],dp[j-b[i]]+sum[i]);
         }
         rep(k,0,n) {
             if(a[k]!=i) continue;
             repr(j,x,p[k]){
-                dp[j]=max(dp[j],dp[j-p[k]]+v[k]);
+                ndp[j]=max(ndp[j],dp[j-p[k]]+v[k]);
             }
         }
+        dp=ndp;
     }
 
     cout<<dp[x]<<endl;
