@@ -77,7 +77,7 @@ Note that the subarrays are traversed from left to right.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-19T13:51:37.001Z  
+**Submitted:** 2026-10-19T13:55:23.599Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -124,13 +124,17 @@ inline void solve() {
     cin>>n>>x;
     vll a(n);
     loop cin>>a[i];
-    vll ans;
-    ll maxi=0;
-    for(int i=0;i<x;i++){
-        maxi=max(maxi,a[i]);
+    priority_queue<pair<int, int>> pq;
+    loop{
+        pq.push({a[i],i});
+        while(!pq.empty()&&pq.top().second<=i-x){
+            pq.pop();
+        }
+        if(i>=x-1) {
+            cout<<pq.top().first <<" ";
+        }
     }
-    ans.pb(maxi);
-    
+    cout<<endl;
     
 }
 
