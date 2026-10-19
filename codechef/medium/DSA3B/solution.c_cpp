@@ -38,6 +38,16 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
+    ll n,x;
+    cin>>n>>x;
+    vll a(n);
+    loop cin>>a[i];
+    vll ans;
+    ll maxi=0;
+    for(int i=0;i<x;i++){
+        maxi=max(maxi,a[i]);
+    }
+    ans.pb(maxi);
     
     
 }
