@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:04:59.358Z  
+**Submitted:** 2026-10-21T15:06:59.185Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -128,7 +128,8 @@ inline void solve() {
         }
     }
     bool change=false;
-    for(int i=0;i<n.size();i++){
+    for(int i=0;i<ans.size();i++){
+        if(i>=n.size()) break;
         if(n[i]!=ans[i]){ 
             change=true;
             continue;
