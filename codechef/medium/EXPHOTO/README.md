@@ -64,7 +64,7 @@ $[2, 4]$: $(3, 1, 2, 5, 4) \to (3, 5, 1, 2, 4)$ $[1, 2]$: $(3, 5, 1, 2, 4) \to (
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:43:33.946Z  
+**Submitted:** 2026-10-21T15:47:07.055Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
