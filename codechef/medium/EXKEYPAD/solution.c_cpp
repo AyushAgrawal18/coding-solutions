@@ -35,12 +35,23 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
+bool check(ll n, ll d){
+    while(n>0){
+        if(n%10==d){
+            return false;
+        }
+        n/=10;
+    }
+    return true;
+}
+
+
 
 inline void solve() {
     // Your solution goes here
     ll n,d;
     cin>>n>>d;
-    while(!check(n, d)){
+    while(!check(n,d)){
         n++;
     }
     cout<<n<<endl;
