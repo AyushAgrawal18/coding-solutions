@@ -39,7 +39,6 @@ Your team is ranked $1$, and your rival's team is ranked $5$. There are $3$ team
 
 ### Sample 2:
 Input
-Copy to clipboard
 Output
 
 ```
@@ -61,7 +60,7 @@ Your rival team is $1$st, and you are $2$nd, no teams between you.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T16:02:23.996Z  
+**Submitted:** 2026-10-21T16:02:40.807Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -105,6 +104,7 @@ const double PI = acos(-1);
 inline void solve() {
     // Your solution goes here
     ll x,y;
+    cin>>x>>y;
     cout<<abs(x-y)-1<<endl;
     
 }
