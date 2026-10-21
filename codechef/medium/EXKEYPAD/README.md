@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:08:20.957Z  
+**Submitted:** 2026-10-21T15:18:42.312Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -127,17 +127,13 @@ inline void solve() {
             ans += n[i];
         }
     }
-    bool change=false;
-    for(int i=0;i<ans.size();i++){
-        if(i>=n.size()) break;
-        if(n[i]!=ans[i]){ 
-            change=true;
-            continue;
-        }
-        if(change==true){
-            if(d[0]!='0') ans[i]='0';
-            else ans[i]='1';
-        }
+    int pos=INT_MAX;
+    for(int i=0;i<n.size();i++){
+        if(n[i]!=ans[i]) pos=i;
+    }
+    for(int i=pos+1;i<ans.size();i++){
+        if(d[0]=='0') ans[i]='1';
+        else ans[i]='0';
     }
     cout<<ans<<endl;
     
@@ -151,7 +147,6 @@ int main() {
         solve();
     return 0;
 }
-
 ```
 
 ---
