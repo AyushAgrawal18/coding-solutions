@@ -64,7 +64,7 @@ $[2, 4]$: $(3, 1, 2, 5, 4) \to (3, 5, 1, 2, 4)$ $[1, 2]$: $(3, 5, 1, 2, 4) \to (
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:47:07.055Z  
+**Submitted:** 2026-10-21T15:49:02.967Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -107,7 +107,13 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n,k;
+    cin>>n>>k;
+    vll a(n);
+    loop cin>>a[i];
+    if(k==1){
+        
+    }
     
 }
 
