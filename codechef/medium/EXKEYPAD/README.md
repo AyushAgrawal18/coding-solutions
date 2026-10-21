@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T14:59:07.882Z  
+**Submitted:** 2026-10-21T15:04:59.358Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -110,15 +110,35 @@ inline void solve() {
     cin>>n>>d;
     string ans="";
     for(int i=0;i<n.size();i++){
-        if(n[i]==d){
-            if(i==0&&d=="9")ans+="10";
-            else if(i!=0&&d=="9") ans+='0';
-            ll temp=int(n[i]);
-            ll cha=char(temp+1);
-            else ans+=cha;
+        if (n[i]==d[0]){
+            if (n[i]=='9'){
+                if (i==0){
+                    ans+="10";
+                } 
+                else{
+                    ans+='0';
+                }
+            } 
+            else{
+                ans+=char(n[i]+1);
+            }
+        } 
+        else{
+            ans += n[i];
         }
     }
-    cout<<ans;
+    bool change=false;
+    for(int i=0;i<n.size();i++){
+        if(n[i]!=ans[i]){ 
+            change=true;
+            continue;
+        }
+        if(change==true){
+            if(d[0]!=0) ans[i]='0';
+            else ans[i]='1';
+        }
+    }
+    cout<<ans<<endl;
     
 }
 
