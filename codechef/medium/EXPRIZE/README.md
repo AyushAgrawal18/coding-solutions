@@ -53,7 +53,7 @@ Test case $1$: $14 = 1 + 2 + 4 + 7$ uses $K = 4$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:33:55.966Z  
+**Submitted:** 2026-10-21T15:42:02.430Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -92,12 +92,24 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
+bool check(ll mid, ll n){
+    ll k=mid+(mid-1)*(mid)*(mid+1)/6;
+    return k<=n;
+}
+
 
 
 inline void solve() {
     // Your solution goes here
-    
-    
+    ll n;
+    cin>>n;
+    ll l=1,h=2000000;
+    while(l<h){
+        ll mid=l+(h-l+1)/2;
+        if (check(mid,n))l=mid;
+        else h=mid-1;
+    }
+    cout<<l<<endl;
 }
 
 int main() {
