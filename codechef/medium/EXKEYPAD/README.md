@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:06:59.185Z  
+**Submitted:** 2026-10-21T15:08:03.940Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -135,7 +135,7 @@ inline void solve() {
             continue;
         }
         if(change==true){
-            if(d[0]!=0) ans[i]='0';
+            if(d[0]!='0') ans[i]='0';
             else ans[i]='1';
         }
     }
