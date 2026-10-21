@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:10:12.682Z  
+**Submitted:** 2026-10-21T15:11:09.391Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -93,12 +93,23 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
+bool check(ll n, ll d){
+    while(n>0){
+        if(n%10==d){
+            return false;
+        }
+        n/=10;
+    }
+    return true;
+}
+
+
 
 inline void solve() {
     // Your solution goes here
     ll n,d;
     cin>>n>>d;
-    while(!check(n, d)){
+    while(!check(n,d)){
         n++;
     }
     cout<<n<<endl;
