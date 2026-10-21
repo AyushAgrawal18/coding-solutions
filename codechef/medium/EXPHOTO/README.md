@@ -64,7 +64,7 @@ $[2, 4]$: $(3, 1, 2, 5, 4) \to (3, 5, 1, 2, 4)$ $[1, 2]$: $(3, 5, 1, 2, 4) \to (
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:49:02.967Z  
+**Submitted:** 2026-10-21T15:56:51.198Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -112,9 +112,28 @@ inline void solve() {
     vll a(n);
     loop cin>>a[i];
     if(k==1){
-        
+        bool flag=true;
+        for(int i=0;i<n-1;i++){
+            if(a[i]<a[i+1]){
+                flag=false;
+                break;
+            }
+        }
+        if(flag) cout<<0<<endl;
+        else cout<<-1<<endl;
+        return;
     }
-    
+    ll ans=0;
+    ll dis=k-1;
+    vll b(n+1,0);
+    loop{
+        ll v=a[i];
+        ll y=0;
+        for(int x=v;x>0;x-=(x&-x)) y+=b[x];
+        ans+=(y+dis-1)/dis;
+        for(int x=v;x<=n;x+=(x&-x)) b[x]++;
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
