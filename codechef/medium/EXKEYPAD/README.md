@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:18:42.312Z  
+**Submitted:** 2026-10-21T15:21:06.972Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -129,7 +129,10 @@ inline void solve() {
     }
     int pos=INT_MAX;
     for(int i=0;i<n.size();i++){
-        if(n[i]!=ans[i]) pos=i;
+        if(n[i]!=ans[i]){ 
+            pos=i;
+            break;
+        }
     }
     for(int i=pos+1;i<ans.size();i++){
         if(d[0]=='0') ans[i]='1';
