@@ -77,7 +77,7 @@ inline void solve() {
             continue;
         }
         if(change==true){
-            if(d[0]!=0) ans[i]='0';
+            if(d[0]!='0') ans[i]='0';
             else ans[i]='1';
         }
     }
