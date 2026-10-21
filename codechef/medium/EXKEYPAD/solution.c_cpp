@@ -35,57 +35,22 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
-bool check(ll n,ll d){
-    while(n>0){
-        ll temp=n%10;
-        if(temp==d) return false;
-        n=n/10;
-    }
-    return true;
-}
-
-
 
 inline void solve() {
     // Your solution goes here
-    string n,d;
+    ll n,d;
     cin>>n>>d;
-    string ans="";
-    int carry=0;
-    for(int i=n.size()-1;i>=0;i--){
-        if (n[i]==d[0]){
-            if (n[i]=='9'){
-                if (i==0){
-                    ans+="10";
-                } 
-                else{
-                    ans+='0';
-                    carry=1;
-                }
-            } 
-            else{
-                ans+=char(n[i]+1+carry);
-            }
-        } 
-        else{
-            ans += n[i];
+    while (true) {
+        ll p=0,cur=1,q=n;
+        while(q>0) {
+            if(q%10==d)p=cur;
+            q/=10;
+            cur*=10;
         }
+        if(p==0) break;
+        n=(n/p+1)*p;
     }
-    int pos=-1;
-    for(int i=0;i<n.size();i++){
-        if(n[i]!=ans[i]){ 
-            pos=i;
-            break;
-        }
-    }
-    if(pos!=-1){
-        for(int i=pos+1;i<ans.size();i++){
-            if(d[0]=='0') ans[i]='1';
-            else ans[i]='0';
-            
-        }
-    }
-    cout<<ans<<endl;
+    cout<<n<<endl;
     
 }
 
