@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:19:40.255Z  
+**Submitted:** 2026-10-21T15:27:15.351Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,7 +109,8 @@ inline void solve() {
     string n,d;
     cin>>n>>d;
     string ans="";
-    for(int i=0;i<n.size();i++){
+    int carry=0;
+    for(int i=n.size()-1;i>=0;i--){
         if (n[i]==d[0]){
             if (n[i]=='9'){
                 if (i==0){
@@ -117,26 +118,30 @@ inline void solve() {
                 } 
                 else{
                     ans+='0';
+                    carry=1;
                 }
             } 
             else{
-                ans+=char(n[i]+1);
+                ans+=char(n[i]+1+carry);
             }
         } 
         else{
             ans += n[i];
         }
     }
-    int pos=INT_MAX;
+    int pos=-1;
     for(int i=0;i<n.size();i++){
         if(n[i]!=ans[i]){ 
             pos=i;
             break;
         }
     }
-    for(int i=pos+1;i<ans.size();i++){
-        if(d[0]=='0') ans[i]='1';
-        else ans[i]='0';
+    if(pos!=-1){
+        for(int i=pos+1;i<ans.size();i++){
+            if(d[0]=='0') ans[i]='1';
+            else ans[i]='0';
+            
+        }
     }
     cout<<ans<<endl;
     
