@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:11:09.391Z  
+**Submitted:** 2026-10-21T15:08:20.957Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -93,12 +93,11 @@ const ll INF = 1e18;
 const double PI = acos(-1);
 
 
-bool check(ll n, ll d){
+bool check(ll n,ll d){
     while(n>0){
-        if(n%10==d){
-            return false;
-        }
-        n/=10;
+        ll temp=n%10;
+        if(temp==d) return false;
+        n=n/10;
     }
     return true;
 }
@@ -107,12 +106,40 @@ bool check(ll n, ll d){
 
 inline void solve() {
     // Your solution goes here
-    ll n,d;
+    string n,d;
     cin>>n>>d;
-    while(!check(n,d)){
-        n++;
+    string ans="";
+    for(int i=0;i<n.size();i++){
+        if (n[i]==d[0]){
+            if (n[i]=='9'){
+                if (i==0){
+                    ans+="10";
+                } 
+                else{
+                    ans+='0';
+                }
+            } 
+            else{
+                ans+=char(n[i]+1);
+            }
+        } 
+        else{
+            ans += n[i];
+        }
     }
-    cout<<n<<endl;
+    bool change=false;
+    for(int i=0;i<ans.size();i++){
+        if(i>=n.size()) break;
+        if(n[i]!=ans[i]){ 
+            change=true;
+            continue;
+        }
+        if(change==true){
+            if(d[0]!='0') ans[i]='0';
+            else ans[i]='1';
+        }
+    }
+    cout<<ans<<endl;
     
 }
 
