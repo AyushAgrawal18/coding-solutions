@@ -60,7 +60,7 @@ Your rival team is $1$st, and you are $2$nd, no teams between you.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T16:02:40.807Z  
+**Submitted:** 2026-10-21T16:02:27.832Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -104,7 +104,6 @@ const double PI = acos(-1);
 inline void solve() {
     // Your solution goes here
     ll x,y;
-    cin>>x>>y;
     cout<<abs(x-y)-1<<endl;
     
 }
