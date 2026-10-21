@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T14:46:26.128Z  
+**Submitted:** 2026-10-21T14:51:20.587Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,7 +109,8 @@ inline void solve() {
     ll n,d;
     cin>>n>>d;
     while(true){
-        if(check(n,d)){
+        string s = to_string(n);
+        if (s.find(char('0'+d))==string::npos) {
             cout<<n<<endl;
             return;
         }
