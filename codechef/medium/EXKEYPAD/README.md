@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T14:52:14.666Z  
+**Submitted:** 2026-10-21T14:59:07.882Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -106,16 +106,19 @@ bool check(ll n,ll d){
 
 inline void solve() {
     // Your solution goes here
-    ll n,d;
+    string n,d;
     cin>>n>>d;
-    while(true){
-        string s = to_string(n);
-        if (s.find(char('0'+d))==string::npos) {
-            cout<<n<<endl;
-            return;
+    string ans="";
+    for(int i=0;i<n.size();i++){
+        if(n[i]==d){
+            if(i==0&&d=="9")ans+="10";
+            else if(i!=0&&d=="9") ans+='0';
+            ll temp=int(n[i]);
+            ll cha=char(temp+1);
+            else ans+=cha;
         }
-        n++;
     }
+    cout<<ans;
     
 }
 
