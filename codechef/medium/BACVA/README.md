@@ -57,7 +57,7 @@ For the third account number, the digit sum is $10$, which is divisible by $10$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-26T13:35:17.966Z  
+**Submitted:** 2026-10-26T13:36:58.303Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -100,12 +100,11 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    ll n;
+    string n;
     cin>>n;
     ll sum=0;
-    while(n>0){
-        sum+=n%10;
-        n=n/10;
+    for (char c:n){
+        sum+=c-'0';
     }
     if(sum%10==0) cout<<"Valid"<<endl;
     else cout<<"Invalid"<<endl;
