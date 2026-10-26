@@ -64,7 +64,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-26T13:41:28.416Z  
+**Submitted:** 2026-10-26T13:41:47.370Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,7 +109,7 @@ inline void solve() {
     // Your solution goes here
     ll n;
     cin>>n;
-    ll poas=0;
+    ll pos=0;
     loop{
         ll x;
         cin>>x;
