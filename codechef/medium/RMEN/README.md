@@ -70,7 +70,7 @@ Therefore, the decoded message is `beunstoppable`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-26T14:08:55.973Z  
+**Submitted:** 2026-10-26T14:09:11.146Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -143,9 +143,9 @@ inline void solve() {
 
 int main() {
     fastio();
-    int t;
-    cin >> t;
-    while (t--) 
+    // int t;
+    // cin >> t;
+    // while (t--) 
         solve();
     return 0;
 }
