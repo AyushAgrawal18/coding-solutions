@@ -63,7 +63,7 @@ To achieve a sum of 2, there are two ways:
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-26T13:52:38.520Z  
+**Submitted:** 2026-10-26T13:57:12.870Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -102,16 +102,10 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
 const double PI = acos(-1);
 
-ll ans(int i, vector<ll>& a, ll s) {
-    if (s == 0) return 1;
-    if (s<0||i<0) return 0;
-    ll take=0;
-    if (a[i]<=s) {
-        take=ans(i,a,s-a[i]);
-    }
-    ll not_take=ans(i-1,a,s);
-
-    return take + not_take;
+ll ans(ll s){
+    if(s==0) return 1;
+    if(s<0) return 0;
+    return ans(s-1)+ans(s-2);
 }
 
 
@@ -120,9 +114,7 @@ inline void solve() {
     // Your solution goes here
     ll s;
     cin>>s;
-    vll a={1,2};
-    ll aa=ans(1,a,s);
-    cout<<aa<<endl;
+    cout<<ans(s)<<endl;
 }
 
 int main() {
