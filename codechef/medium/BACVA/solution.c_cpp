@@ -38,12 +38,11 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    ll n;
+    string n;
     cin>>n;
     ll sum=0;
-    while(n>0){
-        sum+=n%10;
-        n=n/10;
+    for (char c:n){
+        sum+=c-'0';
     }
     if(sum%10==0) cout<<"Valid"<<endl;
     else cout<<"Invalid"<<endl;
