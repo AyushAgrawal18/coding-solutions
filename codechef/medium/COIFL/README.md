@@ -63,7 +63,7 @@ To achieve a sum of 2, there are two ways:
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-26T13:51:50.952Z  
+**Submitted:** 2026-10-26T13:52:38.520Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
