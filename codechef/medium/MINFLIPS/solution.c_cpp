@@ -40,7 +40,7 @@ inline void solve() {
     // Your solution goes here
     ll n;
     cin>>n;
-    ll poas=0;
+    ll pos=0;
     loop{
         ll x;
         cin>>x;
