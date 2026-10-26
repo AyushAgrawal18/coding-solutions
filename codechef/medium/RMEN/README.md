@@ -70,7 +70,7 @@ Therefore, the decoded message is `beunstoppable`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-26T14:09:17.353Z  
+**Submitted:** 2026-10-26T14:13:29.935Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -123,21 +123,20 @@ inline void solve() {
     for(char i='z';i>='o';i--){
         b.pb(i);
     }
-    vll ans;
-    for(int i=0;i<s.size();i++){
-        if(s[i]>='o'){
-            int p=(int)(s[i]-'o');
-            ans.pb(b[p]);
+    string ans="";
+    for (int i=0;i<s.size();i++) {
+        if (s[i]=='#') continue;
+        if (i+1<(int)s.size()&&s[i+1]=='#'){
+            int p=s[i]-'o';
+            ans+=b[p];
             i++;
-        }
+        } 
         else{
-            int p=(int)(s[i]-'a');
-            ans.pb(a[p]);
+            int p=s[i]-'a';
+            ans+=a[p];
         }
     }
-    for(int i=0;i<ans.size();i++){
-        cout<<ans[i];
-    }
+    cout<<ans;
     cout<<endl;
 }
 
