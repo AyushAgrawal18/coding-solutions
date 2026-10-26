@@ -64,7 +64,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-26T13:40:12.183Z  
+**Submitted:** 2026-10-26T13:41:28.416Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -107,7 +107,16 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n;
+    cin>>n;
+    ll poas=0;
+    loop{
+        ll x;
+        cin>>x;
+        if(x==1) pos++;
+    }
+    if(n%2!=0) cout<<-1<<endl;
+    else cout<<abs(pos-n/2)<<endl;
     
 }
 
