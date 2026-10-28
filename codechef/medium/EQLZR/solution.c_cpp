@@ -38,6 +38,14 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
+    if(n==1){
+        cout<<0<<endl;
+        return;
+    }
     
     
 }
