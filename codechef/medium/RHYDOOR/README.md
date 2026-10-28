@@ -66,7 +66,7 @@ BBBBAAAAABBBBBBB
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T15:21:26.560Z  
+**Submitted:** 2026-10-28T15:23:49.712Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -117,10 +117,11 @@ inline void solve() {
     ll ans=0;
     for(int i=1;i<n;i++){
         if(s[i]==s[i-1]) cnt++;
+        else cnt=1;
+        
         if(cnt==3){
             ans++;
-            i++;
-            cnt=1;
+            cnt=0;
         }
     }
     cout<<ans<<endl;
