@@ -121,7 +121,7 @@ Next, the edge between vertices $1$ and $2$ is removed, which marks both of them
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T15:12:53.042Z  
+**Submitted:** 2026-10-28T15:13:03.236Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
