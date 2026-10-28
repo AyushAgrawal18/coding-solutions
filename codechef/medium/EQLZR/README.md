@@ -68,7 +68,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T14:48:51.469Z  
+**Submitted:** 2026-10-28T14:41:12.379Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -119,27 +119,8 @@ inline void solve() {
         cout<<0<<endl;
         return;
     }
-    ll cnt=0;
-    for(int i=0;i<n-1;i++){
-        if(a[i]==a[i+1]) cnt++;
-    }
-    vll b(n+1,0);
-    for(int i=2;i<=n;i++){
-        if(a[i-2]==a[i-1]) b[i]=-1;
-        else if(a[i-2]==a[i-1]+1) b[i]=1;
-    }
-    ll ans=cnt;
-    ll best=0;
-    for(int r=1;r<=n;r++){
-        best=max(best,b[r]);
-        ll x=0;
-        if(r<n){
-            if(a[r-1]==a[r]) x=-1;
-            else if(a[r-1]+1==a[r]) x=1;
-        }
-        ans=max(ans,cnt+best+x);
-    }
-    cout<<ans<<endl;
+    
+    
 }
 
 int main() {
