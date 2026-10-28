@@ -71,7 +71,7 @@ The CPU is idle until time $4$, executes process $2$ during $[4, 5]$, is idle ag
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T14:59:35.982Z  
+**Submitted:** 2026-10-28T15:00:01.932Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
