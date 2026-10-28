@@ -67,7 +67,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T14:50:48.948Z  
+**Submitted:** 2026-10-28T14:55:25.659Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -110,7 +110,15 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
-    
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
+    ll ans=a[n-1]-a[n-2];
+    for(int i=0;i<n-2;i++){
+        ans+=abs(a[i]);
+    }
+    cout<<ans<<endl;
     
 }
 
