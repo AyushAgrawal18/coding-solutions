@@ -68,7 +68,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T14:38:36.371Z  
+**Submitted:** 2026-10-28T14:41:08.372Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -111,6 +111,14 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
+    ll n;
+    cin>>n;
+    vll a(n);
+    loop cin>>a[i];
+    if(n==1){
+        cout<<0<<endl;
+        return;
+    }
     
     
 }
