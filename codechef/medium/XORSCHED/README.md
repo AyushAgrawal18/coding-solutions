@@ -71,7 +71,7 @@ The CPU is idle until time $4$, executes process $2$ during $[4, 5]$, is idle ag
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T15:00:01.932Z  
+**Submitted:** 2026-10-28T15:11:14.498Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -103,7 +103,7 @@ using namespace std;
 
 typedef vector<int> vi;
 typedef vector<ll> vll;
-typedef pair<int, int> pii;
+typedef pair<ll, ll> pii;
 typedef vector<pii> vpii;
 
 const ll MOD = 1e9 + 7;
@@ -114,8 +114,30 @@ const double PI = acos(-1);
 
 inline void solve() {
     // Your solution goes here
+    ll x,y,n;
+    cin>>x>>y>>n;
+    vpii a;
+    ll l=0;
+    while(l<=n){
+        ll rem=n-l+1;
+        ll k=63-__builtin_clzll(rem);
+        if(l>0) k=min(k,(ll)__builtin_clzll(l));
     
-    
+        ll b=1LL<<k;
+        ll p=l>>k;
+        ll s=(p^(x>>k))*b;
+        ll q=p^(y>>k);
+        ll d=q*b*b+b*(b-1)/2+b;
+        a.pb({s,d});
+        l+=b;
+    }
+    sort(all(a));
+    ll ans=0;
+    for(int i=0;i<a.size();i++){
+        ans=max(ans,a[i].first);
+        ans+=a[i].second;
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
